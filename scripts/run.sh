@@ -1,4 +1,4 @@
 set -ex
-bash ./partition.sh
-bash ./config.sh
-bash ./install.sh
+bash ./scripts/partition.sh
+bash ./scripts/config.sh
+bash ./scripts/install.sh
