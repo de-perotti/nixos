@@ -4,23 +4,23 @@
   imports = [./hardware-configuration.nix];
   boot = import ./boot.nix;
 
-  # #/>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
-  # # Wayland configuration
-  # # TODO: configure waybar instead of sway-bar (may have to customize gtk theme due to compatibility issues)
-  # environment.systemPackages = with pkgs; [
-  #   grim # screenshot functionality
-  #   slurp # screenshot functionality
-  #   wl-clipboard # wl-copy and wl-paste for copy/paste from stdin / stdout
-  #   mako # notification system developed by swaywm maintainer
-  # ];
-  # # Enable the gnome-keyring secrets vault. 
-  # # Will be exposed through DBus to programs willing to store secrets.
-  # services.gnome.gnome-keyring.enable = true;
-  # # enable Sway window manager
-  # programs.sway = {
-  #   enable = true;
-  #   wrapperFeatures.gtk = true;
-  # };
+  #/>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+  # Wayland configuration
+  # TODO: configure waybar instead of sway-bar (may have to customize gtk theme due to compatibility issues)
+  environment.systemPackages = with pkgs; [
+    grim # screenshot functionality
+    slurp # screenshot functionality
+    wl-clipboard # wl-copy and wl-paste for copy/paste from stdin / stdout
+    mako # notification system developed by swaywm maintainer
+  ];
+  # Enable the gnome-keyring secrets vault. 
+  # Will be exposed through DBus to programs willing to store secrets.
+  services.gnome.gnome-keyring.enable = true;
+  # enable Sway window manager
+  programs.sway = {
+    enable = true;
+    wrapperFeatures.gtk = true;
+  };
 
   #/>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
   # Allow unfree packages
@@ -37,8 +37,8 @@
     description = "admin";
     extraGroups = [ "wheel" ];
     packages = [
-      pkgs.google-chrome
-      pkgs.jetbrains-toolbox
+      # pkgs.google-chrome
+      # pkgs.jetbrains-toolbox
     ];
   };
 
