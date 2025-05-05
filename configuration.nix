@@ -8,7 +8,7 @@
       "jetbrains-toolbox"
     ];
 
-  disablebModules = [];
+  disabledModules = [];
   imports = [
     # Silent boot
     ./nixos/silent-boot/boot.nix
