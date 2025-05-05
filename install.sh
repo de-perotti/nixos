@@ -13,3 +13,4 @@ mount -o umask=077 /dev/disk/by-label/boot /mnt/boot
 swapon /dev/sda2
 nixos-generate-config --root /mnt
 mv -f configuration.nix /mnt/etc/nixos/configuration.nix
+nixos-install
