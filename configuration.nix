@@ -10,17 +10,18 @@
 
   # disabledModules = [];
   imports = [
-    # Silent boot
-    ./modules/silent-boot/boot.nix
-
     # Hardware
     ./hardware-configuration.nix # Generated
 
     # Wayland
     # TODO
-
-    # Users
-    ./modules/users/perotti.nix
+  ];
+  boot.initrd.checkJournalingFS = true;
+  boot.loader.grub.device = "/dev/sda";
+  boot.loader.grub.enable = true;
+  users.users.perotti.isNormalUser = true;
+  users.users.perotti.extraGroups = [
+      "wheel" # Enable sudo
   ];
   system.stateVersion = "24.11";
 }
