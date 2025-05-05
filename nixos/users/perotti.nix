@@ -1,9 +1,7 @@
-{ config, ... }:
+{ ... }:
 {
-    users.users.perotti = {
-        isNormalUser = true;
-        extraGroups = [
-            "wheel" # Enable sudo
-        ];
-    };
+    users.users.perotti.isNormalUser = true;
+    users.users.perotti.extraGroups = [
+        "wheel" # Enable sudo
+    ];
 }

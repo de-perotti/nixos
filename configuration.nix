@@ -1,14 +1,14 @@
-{ config, lib, pkgs, ... }:
+{ ... }:
 # TODO: migrate to home manager
 {
-  # Allow unfree packages
-  nixpkgs.config.allowUnfreePredicate = pkg:
-    builtins.elem (lib.getName pkg) [
-      "google-chrome"
-      "jetbrains-toolbox"
-    ];
+  # # Allow unfree packages
+  # nixpkgs.config.allowUnfreePredicate = pkg:
+  #   builtins.elem (lib.getName pkg) [
+  #     "google-chrome"
+  #     "jetbrains-toolbox"
+  #   ];
 
-  disabledModules = [];
+  # disabledModules = [];
   imports = [
     # Silent boot
     ./nixos/silent-boot/boot.nix
