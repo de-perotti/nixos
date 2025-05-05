@@ -10,4 +10,3 @@ swapon /dev/sda2
 nixos-generate-config --root /mnt
 mv -f configuration.nix /mnt/etc/nixos/configuration.nix
 nixos-install
-nixos-enter --root /mnt -c 'passwd perotti'
