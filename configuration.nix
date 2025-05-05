@@ -1,7 +1,16 @@
 { config, lib, pkgs, ... }:
+let
+  target = "virtualBox";
+  _boot = {
+    virtualBox = {
+      initrd.checkJournalingFS = true;
+      loader.grub.enable = true;
+      loader.grub.device = "/dev/sda";
+    };
+  };
+in
 {
   imports = [./hardware-configuration.nix];
-  boot.loader.grub.enable = true;
-  boot.loader.grub.device = "/dev/sda";
+  boot = _boot."${target}";
   system.stateVersion = "24.11";
 }
