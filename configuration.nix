@@ -11,7 +11,7 @@
   # disabledModules = [];
   imports = [
     # Silent boot
-    ./nixos/silent-boot/boot.nix
+    ./modules/silent-boot/boot.nix
 
     # Hardware
     ./hardware-configuration.nix # Generated
@@ -20,7 +20,7 @@
     # TODO
 
     # Users
-    ./nixos/users/perotti.nix
+    ./modules/users/perotti.nix
   ];
   system.stateVersion = "24.11";
 }
