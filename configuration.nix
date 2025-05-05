@@ -37,7 +37,7 @@
     description = "admin";
     extraGroups = [ "wheel" ];
     packages = [
-      pkgs.google-chromel
+      pkgs.google-chrome
       pkgs.jetbrains-toolbox
     ];
   };
