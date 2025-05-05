@@ -9,4 +9,4 @@ mount /dev/disk/by-label/nixos /mnt
 swapon /dev/sda2
 nixos-generate-config --root /mnt
 mv -f configuration.nix /mnt/etc/nixos/configuration.nix
-nixos-install --no-root-passwd
+nixos-install
