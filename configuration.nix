@@ -1,5 +1,4 @@
-{ ... }:
-# TODO: migrate to home manager
+{ config, pkgs, ... }:
 {
   imports = [./hardware-configuration.nix];
   boot.initrd.checkJournalingFS = true;
