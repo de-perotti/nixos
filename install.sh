@@ -5,7 +5,7 @@ parted -s /dev/sda -- mkpart swap linux-swap -8GB 100%
 parted -s /dev/sda -- mkpart ESP fat32 1MB 512MB
 parted -s /dev/sda -- set 3 esp on
 mkfs.ext4 -FL nixos /dev/sda1
-mkswap -FL swap /dev/sda2
+mkswap -L swap /dev/sda2
 mkfs.fat -F 32 -n boot /dev/sda3
 mount /dev/disk/by-label/nixos /mnt
 mkdir -p /mnt/boot
