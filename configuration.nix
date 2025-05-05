@@ -2,29 +2,33 @@
 # TODO: migrate to home manager
 {
   imports = [./hardware-configuration.nix];
-  boot = {
-    initrd.checkJournalingFS = true;
-    loader.grub.enable = true;
-    loader.grub.device = "/dev/sda";
-  };
+  boot = import ./boot.nix;
+
+  # #/>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+  # # Wayland configuration
+  # # TODO: configure waybar instead of sway-bar (may have to customize gtk theme due to compatibility issues)
+  # environment.systemPackages = with pkgs; [
+  #   grim # screenshot functionality
+  #   slurp # screenshot functionality
+  #   wl-clipboard # wl-copy and wl-paste for copy/paste from stdin / stdout
+  #   mako # notification system developed by swaywm maintainer
+  # ];
+  # # Enable the gnome-keyring secrets vault. 
+  # # Will be exposed through DBus to programs willing to store secrets.
+  # services.gnome.gnome-keyring.enable = true;
+  # # enable Sway window manager
+  # programs.sway = {
+  #   enable = true;
+  #   wrapperFeatures.gtk = true;
+  # };
 
   #/>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
-  # Wayland configuration
-  # TODO: configure waybar instead of sway-bar (may have to customize gtk theme due to compatibility issues)
-  environment.systemPackages = with pkgs; [
-    grim # screenshot functionality
-    slurp # screenshot functionality
-    wl-clipboard # wl-copy and wl-paste for copy/paste from stdin / stdout
-    mako # notification system developed by swaywm maintainer
-  ];
-  # Enable the gnome-keyring secrets vault. 
-  # Will be exposed through DBus to programs willing to store secrets.
-  services.gnome.gnome-keyring.enable = true;
-  # enable Sway window manager
-  programs.sway = {
-    enable = true;
-    wrapperFeatures.gtk = true;
-  };
+  # Allow unfree packages
+  nixpkgs.config.allowUnfreePredicate = pkg:
+    builtins.elem (lib.getName pkg) [
+      "google-chrome"
+      "jetbrains-toolbox"
+    ];
 
   #/>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
   # Define a user account. Don't forget to set a password with ‘passwd’.
@@ -32,6 +36,10 @@
     isNormalUser = true;
     description = "admin";
     extraGroups = [ "wheel" ];
+    packages = [
+      pkgs.google-chromel
+      pkgs.jetbrains-toolbox
+    ];
   };
 
   #/>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
@@ -73,12 +81,7 @@
   #   hostname = "brabus";
   #   networkmanager.enable = true;
   # };
-  # # Allow unfree packages
-  # nixpkgs.config.allowUnfreePredicate = pkg:
-  #   builtins.elem (lib.getName pkg) [
-  #     "google-chrome"
-  #     "jetbrains-toolbox"
-  #   ];
+
   # programs = {
   #   sway = {
   #     enable = true;
