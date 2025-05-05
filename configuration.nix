@@ -8,6 +8,7 @@
     loader.grub.device = "/dev/sda";
   };
 
+  #/>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
   # Wayland configuration
   # TODO: configure waybar instead of sway-bar (may have to customize gtk theme due to compatibility issues)
   environment.systemPackages = with pkgs; [
@@ -16,16 +17,25 @@
     wl-clipboard # wl-copy and wl-paste for copy/paste from stdin / stdout
     mako # notification system developed by swaywm maintainer
   ];
-
   # Enable the gnome-keyring secrets vault. 
   # Will be exposed through DBus to programs willing to store secrets.
   services.gnome.gnome-keyring.enable = true;
-
   # enable Sway window manager
   programs.sway = {
     enable = true;
     wrapperFeatures.gtk = true;
   };
+
+  #/>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+  # Define a user account. Don't forget to set a password with ‘passwd’.
+  users.users.perotti = {
+    isNormalUser = true;
+    description = "admin";
+    # extraGroups = [ "networkmanager" "wheel" ];
+  };
+
+  #/>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+  system.stateVersion = "24.11";
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
@@ -94,15 +104,4 @@
   #   openssh.enable = true;
   # };
   # sound.enable = true;
-  # system.stateVersion = "24.11";
-  # # Define a user account. Don't forget to set a password with ‘passwd’.
-  # users.users.perotti = {
-  #   isNormalUser = true;
-  #   description = "admin";
-  #   extraGroups = [ "networkmanager" "wheel" ];
-  #   packages = [
-  #     pkgs.google-chrome
-  #     pkgs.jetbrains-toolbox
-  #   ];
-  # };
 }
