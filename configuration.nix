@@ -31,7 +31,7 @@
   users.users.perotti = {
     isNormalUser = true;
     description = "admin";
-    # extraGroups = [ "networkmanager" "wheel" ];
+    extraGroups = [ "wheel" ];
   };
 
   #/>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
