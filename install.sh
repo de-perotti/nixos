@@ -1,4 +1,4 @@
-sudo -i
+set -ex
 parted -s /dev/sda -- mklabel gpt
 parted -s /dev/sda -- mkpart root ext4 512MB -8GB
 parted -s /dev/sda -- mkpart swap linux-swap -8GB 100%
