@@ -14,13 +14,35 @@ in
   boot.loader.grub.enable = true;
 
   #> Hyprland
-  environment.systemPackages = [ pkgs.kitty ];
+  environment.systemPackages = [
+    pkgs.hyprland
+    pkgs.xdg-utils
+    pkgs.xdg-desktop-portal
+    pkgs.xdg-desktop-portal-hyprland
+    pkgs.waybar
+    pkgs.dunst
+    pkgs.kitty
+    pkgs.wofi
+  ];
   environment.sessionVariables.NIXOS_OZONE_WL = "1";
   programs.hyprland.enable = true;
+  services.displayManager.sddm.enable = true;
+  services.displayManager.defaultSession = "hyprland";
+  xdg.portal.enable = true;
+  xdg.portal.extraPortals = [ pkgs.xdg-desktop-portal-hyprland ];
+  hardware.opengl.enable = true;
+  hardware.opengl.driSupport = true;
+  hardware.opengl.driSupport32Bit = true;
+  fonts.packages = [
+    pkgs.nerdfonts
+    pkgs.noto-fonts
+    pkgs.noto-fonts-cjk
+    pkgs.noto-fonts-emoji
+  ];
 
   #> User: perotti
   users.users.perotti.isNormalUser = true;
-  users.users.perotti.extraGroups = [ "wheel" "video" ];
+  users.users.perotti.extraGroups = [ "wheel" "networkmanager" "video" ];
   home-manager.users.perotti = { pkgs, ... }: {
     home.stateVersion = "24.11";
     wayland.windowManager.hyprland.settings = {
