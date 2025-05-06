@@ -9,7 +9,7 @@
 
     # Programs
     ./modules/programs/zsh.nix
-    ./modules/programs/wayland.nix
+    ./modules/programs/hyprland.nix
 
     # Users
     ./modules/users/perotti.nix
