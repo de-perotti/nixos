@@ -34,10 +34,7 @@ in
   services.xserver.enable = true;
   services.xserver.displayManager.gdm.enable = true;
   services.xserver.displayManager.gdm.wayland = true;
-  programs.sway = {
-    enable = true;
-    wrapperFeatures.gtk = true;
-  };
+  services.xserver.desktopManager.gnome.enable = true;
 
   #> Keyboard
   services.xserver.xkb = {
