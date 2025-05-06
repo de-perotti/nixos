@@ -18,6 +18,9 @@
 
   #> Programs
   programs.hyprland.enable = true;
+  environment.systemPackages = [
+    pkgs.kitty
+  ];
 
   #> Packages
   # nixpkgs.config.allowUnfreePredicate = pkg:
