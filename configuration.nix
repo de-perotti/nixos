@@ -5,7 +5,7 @@ in
 {
   imports = [
     ./hardware-configuration.nix
-    # (import "${home-manager}/nixos")
+    (import "${home-manager}/nixos")
   ];
 
   #> Boot
