@@ -1,7 +1,7 @@
 { pkgs, ... }:
-# let
-  # home-manager = builtins.fetchTarball https://github.com/nix-community/home-manager/archive/release-24.11.tar.gz;
-# in
+let
+  home-manager = builtins.fetchTarball https://github.com/nix-community/home-manager/archive/release-24.11.tar.gz;
+in
 {
   imports = [
     ./hardware-configuration.nix
@@ -30,10 +30,13 @@
   #   ];
 
   #> User: perotti
-  # users.users.perotti.isNormalUser = true;
+  users.users.perotti.isNormalUser = true;
   # users.users.perotti.extraGroups = [ "wheel" ];
-  # home-manager.users.perotti = { pkgs, ... }: {
-  #   home.stateVersion = "24.11";
+  home-manager.users.perotti = { pkgs, ... }: {
+    home.stateVersion = "24.11";
+    programs.kitty.enable = true;
+    wayland.windowManager.hyprland.enable = true;
+    home.sessionVariables.NIXOS_OZONE_WL = "1";
   #   home.packages = [
   #     pkgs.zsh-powerlevel10k
   #     # pkgs.terminator
@@ -55,7 +58,7 @@
   #       source ${pkgs.zsh-powerlevel10k}/share/zsh-powerlevel10k/powerlevel10k.zsh-theme;
   #     '';
   #   };
-  # };
+  };
 
   #> Nix
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
