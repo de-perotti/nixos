@@ -1,4 +1,4 @@
-{ environment, ... }:
+{ environment, pkgs, ... }:
 {
   environment.systemPackages = [
     pkgs.zsh-powerlevel10k
