@@ -28,13 +28,15 @@ in
   #     "google-chome"
   #     "jetbrains-toolbox"
   #   ];
-
+  environment.systemPackages = [
+    pkgs.seatd
+  ];
+  services.seatd.enable = true;
   #> User: perotti
   users.users.perotti.isNormalUser = true;
   users.users.perotti.extraGroups = [ "wheel" "video" ];
   home-manager.users.perotti = { pkgs, ... }: {
     home.stateVersion = "24.11";
-
     programs.kitty.enable = true;
     wayland.windowManager.hyprland.enable = true;
     wayland.windowManager.hyprland.settings = {
@@ -58,27 +60,6 @@ in
         );
     };
     home.sessionVariables.NIXOS_OZONE_WL = "1";
-  #   home.packages = [
-  #     pkgs.zsh-powerlevel10k
-  #     # pkgs.terminator
-  #     # pkgs.jetbrains-toolbox
-  #     # pkgs.google-chome
-  #   ];
-  #   programs.git = {
-  #     enable = true;
-  #     userName  = "Luigi Perotti";
-  #     userEmail = "perottilds@gmail.com";
-  #   };
-  #   programs.zsh = {
-  #     enable = true;
-  #     ohMyZsh.enable = true;
-  #     ohMyZsh.plugins = [
-  #       "git"
-  #     ];
-  #     promptInit = ''
-  #       source ${pkgs.zsh-powerlevel10k}/share/zsh-powerlevel10k/powerlevel10k.zsh-theme;
-  #     '';
-  #   };
   };
 
   #> Nix
