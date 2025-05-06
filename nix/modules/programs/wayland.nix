@@ -1,4 +1,4 @@
-{ ... }:
+{ pkgs, ... }:
 
 let
   dbus-sway-environment = pkgs.writeTextFile {
@@ -37,19 +37,19 @@ in
   '';
   programs.light.enable = true;
 
-  environment.systemPackages = with pkgs; [
-    alacritty
-    sway
-    dbus-sway-environment
-    configure-gtk
-    wayland
-    xdg-utils
-    glib
-    whitesur-icon-theme
-    grim
-    slurp
-    wl-clipboard
-    capitaine-cursors
+  environment.systemPackages = [
+    pkgs.alacritty
+    pkgs.sway
+    pkgs.dbus-sway-environment
+    pkgs.configure-gtk
+    pkgs.wayland
+    pkgs.xdg-utils
+    pkgs.glib
+    pkgs.whitesur-icon-theme
+    pkgs.grim
+    pkgs.slurp
+    pkgs.wl-clipboard
+    pkgs.capitaine-cursors
   ];
   services.dbus.enable = true;
   xdg.portal = {

@@ -1,4 +1,4 @@
-{ ... }:
+{ pkgs, ... }:
 {
   # Nix
   system.stateVersion = "24.11";
