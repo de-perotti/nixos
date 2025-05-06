@@ -16,7 +16,7 @@ in
   #> Base
   networking.hostName = "nixos-vm";
   networking.networkmanager.enable = true;
-  time.timezone = "America/Sao_Paulo";
+  time.timeZone = "America/Sao_Paulo";
   i18n.defaultLocale = "en_US.UTF-8";
   i18n.extraLocaleSettings = {
     LC_ADDRESS = "pt_BR.UTF-8";
