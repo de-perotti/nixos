@@ -13,7 +13,7 @@
     enable = true;
     settings = rec {
       default_session = {
-        command = "${pkgs.greetd.wlgreet}/bin/wlgreet --cmd sway";
+        command = "${pkgs.greetd.wlgreet}/bin/wlgreet --command sway";
       };
     };
   };
