@@ -27,12 +27,11 @@ in
   environment.sessionVariables.NIXOS_OZONE_WL = "1";
   programs.hyprland.enable = true;
   services.displayManager.sddm.enable = true;
+  services.displayManager.sddm.wayland.enable = true;
   services.displayManager.defaultSession = "hyprland";
   xdg.portal.enable = true;
   xdg.portal.extraPortals = [ pkgs.xdg-desktop-portal-hyprland ];
   hardware.opengl.enable = true;
-  hardware.opengl.driSupport = true;
-  hardware.opengl.driSupport32Bit = true;
   fonts.packages = [
     pkgs.nerdfonts
     pkgs.noto-fonts
