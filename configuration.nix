@@ -31,9 +31,10 @@ in
 
   #> User: perotti
   users.users.perotti.isNormalUser = true;
-  # users.users.perotti.extraGroups = [ "wheel" ];
+  users.users.perotti.extraGroups = [ "wheel" "video" ];
   home-manager.users.perotti = { pkgs, ... }: {
     home.stateVersion = "24.11";
+
     programs.kitty.enable = true;
     wayland.windowManager.hyprland.enable = true;
     wayland.windowManager.hyprland.settings = {
