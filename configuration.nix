@@ -31,7 +31,7 @@ in
   services.displayManager.defaultSession = "hyprland";
   xdg.portal.enable = true;
   xdg.portal.extraPortals = [ pkgs.xdg-desktop-portal-hyprland ];
-  hardware.opengl.enable = true;
+  hardware.graphics.enable = true;
   fonts.packages = [
     pkgs.nerdfonts
     pkgs.noto-fonts
