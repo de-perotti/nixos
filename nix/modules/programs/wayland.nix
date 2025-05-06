@@ -40,8 +40,8 @@ in
   environment.systemPackages = [
     pkgs.alacritty
     pkgs.sway
-    pkgs.dbus-sway-environment
-    pkgs.configure-gtk
+    dbus-sway-environment
+    configure-gtk
     pkgs.wayland
     pkgs.xdg-utils
     pkgs.glib
