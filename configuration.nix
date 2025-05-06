@@ -17,10 +17,10 @@ in
   # time.timeZone = "America/Sao_Paulo";
 
   #> Programs
-  programs.hyprland.enable = true;
-  environment.systemPackages = [
-    pkgs.kitty
-  ];
+  # programs.hyprland.enable = true;
+  # environment.systemPackages = [
+  #   pkgs.kitty
+  # ];
 
   #> Packages
   # nixpkgs.config.allowUnfreePredicate = pkg:
