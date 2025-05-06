@@ -11,10 +11,9 @@
 
   services.greetd = {
     enable = true;
-    settings = rec {
-      default_session = {
-        command = "${pkgs.greetd.wlgreet}/bin/wlgreet --command sway";
-      };
+    settings = {
+      terminal.vt = 1;
+      default_session.command = "sway";
     };
   };
 }
