@@ -25,5 +25,5 @@
     '';
   };
   programs.waybar.enable = true;
-  programs.qt5ct.enable = true;
+  qt.platformTheme = "qt5ct";
 }
