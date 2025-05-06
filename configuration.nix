@@ -13,32 +13,16 @@ in
   boot.loader.grub.device = "/dev/sda";
   boot.loader.grub.enable = true;
 
-  #> Timezone
-  # time.timeZone = "America/Sao_Paulo";
+  #> Hyprland
+  environment.systemPackages = [ pkgs.kitty ];
+  environment.sessionVariables.NIXOS_OZONE_WL = "1";
+  programs.hyprland.enable = true;
 
-  #> Programs
-  # programs.hyprland.enable = true;
-  # environment.systemPackages = [
-  #   pkgs.kitty
-  # ];
-
-  #> Packages
-  # nixpkgs.config.allowUnfreePredicate = pkg:
-  #   builtins.elem (lib.getName pkg) [
-  #     "google-chome"
-  #     "jetbrains-toolbox"
-  #   ];
-  environment.systemPackages = [
-    pkgs.seatd
-  ];
-  services.seatd.enable = true;
   #> User: perotti
   users.users.perotti.isNormalUser = true;
   users.users.perotti.extraGroups = [ "wheel" "video" ];
   home-manager.users.perotti = { pkgs, ... }: {
     home.stateVersion = "24.11";
-    programs.kitty.enable = true;
-    wayland.windowManager.hyprland.enable = true;
     wayland.windowManager.hyprland.settings = {
       "$mod" = "SUPER";
       bind =
@@ -59,7 +43,6 @@ in
             9)
         );
     };
-    home.sessionVariables.NIXOS_OZONE_WL = "1";
   };
 
   #> Nix
