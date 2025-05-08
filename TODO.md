@@ -1,0 +1,5 @@
+- [ ] Use flakes instead
+  - reference: https://github.com/KubqoA/dotfiles/tree/main
+- [ ] working basic GNOME
+- [ ] working configuration dotfiles
+- [ ] working Sway

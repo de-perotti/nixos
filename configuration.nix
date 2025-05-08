@@ -1,21 +1,22 @@
 { pkgs, ... }:
-let
-  home-manager = builtins.fetchTarball https://github.com/nix-community/home-manager/archive/release-24.11.tar.gz;
-in
 {
   imports = [
     ./hardware-configuration.nix
-    (import "${home-manager}/nixos")
   ];
 
-  #> Boot
   boot.initrd.checkJournalingFS = true;
   boot.loader.grub.device = "/dev/sda";
   boot.loader.grub.enable = true;
 
-  #> Base
-  networking.hostName = "nixos-vm";
+  networking.hostName = "rice";
   networking.networkmanager.enable = true;
+  networking.firewall.enable = false;
+  networkings.nameservers = [
+    "1.1.1.1"
+    "1.0.0.1"
+  ];
+  services.openssh.enable = true;
+
   time.timeZone = "America/Sao_Paulo";
   i18n.defaultLocale = "en_US.UTF-8";
   i18n.extraLocaleSettings = {
@@ -30,27 +31,71 @@ in
     LC_TIME = "pt_BR.UTF-8";
   };
 
-  #> Hyprland
   services.xserver.enable = true;
   services.xserver.displayManager.gdm.enable = true;
   services.xserver.displayManager.gdm.wayland = true;
-  services.xserver.desktopManager.gnome.enable = true;
+  services.xserver.desktopManager.gnome.enable = false;
+  programs.sway.enable = true;
 
-  #> Keyboard
-  services.xserver.xkb = {
-    layout = "us";
-    variant = "intl";
-  };
+  programs.light.enable = true;
+  services.xserver.xkb.layout = "us";
+  services.xserver.xkb.variant = "intl";
   console.keyMap = "us";
 
-  #> Printer
   services.printing.enable = true;
 
-  #> User: perotti
+  hardware.pulseaudio.enable = true;
+  security.rtkit.enable = true;
+  services.pipewire.enable = true;
+  services.pipewire.alsa.enable = true;
+  services.pipewire.alsa.support32Bit = true;
+  services.pipewire.pulse.enable = true;
+
+  nixpkgs.config.allowUnfree = true;
+
+  environment.systemPackages = with pkgs; [
+    zsh-powerlevel10k
+  ];
+
+  fonts.packages = with pkgs; [
+    noto-fonts
+    noto-fonts-cjk
+    noto-fonts-emoji
+    jetbrains-mono
+  ];
+
+  programs.zsh.enable = true;
+  programs.zsh.autosuggestions.enable = true;
+  programs.zsh.syntaxHighlighting.enable = true;
+  programs.zsh.zsh-autoenv.enable = true;
+  programs.zsh.promptInit = "source ${pkgs.zsh-powerlevel10k}/share/zsh-powerlevel10k/powerlevel10k.zsh-theme";
+  programs.zsh.oh-my-zsh.enable = true;
+  programs.zsh.oh-my-zsh.plugins = [
+    "colorize"
+    "docker"
+    "docker-compose"
+    "git"
+    "emoji"
+    "history"
+    "node"
+    "npm"
+  ];
+
   users.users.perotti.isNormalUser = true;
   users.users.perotti.extraGroups = [ "wheel" "networkmanager" ];
+  users.users.perotti.shell = pkgs.zsh;
+  users.users.perotti.packages = with pkgs; [
+    google-chrome
+    jetbrains-toolbox
+    neovim
+    docker
+    docker-compose
+    git
+    curl
+    wget
+    terminator
+  ];
 
-  #> Nix
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
   system.stateVersion = "24.11";
 }
