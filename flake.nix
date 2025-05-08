@@ -13,7 +13,14 @@
     nixosConfigurations = {
       rice = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
+        specialArgs = {
+          inherit nixpkgs;
+        };
         modules = [
+          nixos-hardware.nixosModules.common-pc-laptop-ssd
+          nixos-hardware.nixosModules.common-cpu-intel
+          nixos-hardware.nixosModules.common-gpu-intel
+          ./hardware-configuration.nix
           ./configuration.nix
           home-manager.nixosModules.home-manager
           {
@@ -21,10 +28,6 @@
             home-manager.useUserPackages = true;
             home-manager.users.perotti = ./home.nix;
           }
-          nixos-hardware.nixosModules.common-pc-laptop-ssd
-          nixos-hardware.nixosModules.common-cpu-intel
-          nixos-hardware.nixosModules.common-gpu-intel
-          ./hardware-configuration.nix
         ];
       };
     };
