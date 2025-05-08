@@ -1,4 +1,4 @@
-inputs @ { nixpkgs, home-manager, nixos-hardware, ... }:
+inputs @ { nixpkgs, home-manager, nixos-hardware, pkgs, ... }:
   nixpkgs.lib.nixosSystem {
     system = "x86_64-linux";
     modules = [
