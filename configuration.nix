@@ -87,6 +87,24 @@ in
   
     home.username = "perotti";
     home.homeDirectory = "/home/perotti";
+
+    fonts.fontconfig.enable = true;
+    fonts.fontconfig.defaultFonts = {
+      emoji = [
+        "Noto Color Emoji"
+      ];
+      monospace = [
+        "JetBrains Mono"
+        "JetBrains Mono Nerd Font"
+      ];
+      sansSerif = [
+        "Noto Sans"
+        "Noto Sans CJK SC"
+      ];
+      serif = [
+        "Noto Serif"
+      ];
+    };
   
     home.packages = with pkgs; [
       google-chrome
@@ -100,6 +118,8 @@ in
       vscode
       nerdfonts
     ];
+
+    programs.htop.enable = true;
   
     programs.zsh = { 
       enable = true;
