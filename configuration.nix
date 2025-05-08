@@ -131,7 +131,7 @@ in
         dpi-aware = true;
       };
       cursor = {
-        shape = "block";
+        style = "block";
         blink = true;
       };
       mouse = {
