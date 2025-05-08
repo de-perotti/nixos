@@ -54,6 +54,7 @@
   nixpkgs.config.allowUnfree = true;
   environment.systemPackages = with pkgs; [];
   programs.zsh.enable = true;
+  security.polkit.enable = true;
 
   fonts.packages = with pkgs; [
     noto-fonts

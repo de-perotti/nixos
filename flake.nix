@@ -9,7 +9,7 @@
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
   };
-  outputs =  { nixpkgs, nixos-hardware, home-manager, ... }:  {
+  outputs = { nixpkgs, nixos-hardware, home-manager, ... }: {
     nixosConfigurations.rice = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
       modules = [
