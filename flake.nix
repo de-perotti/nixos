@@ -10,6 +10,6 @@
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
   };
   outputs = inputs: {
-    nixosConfigurations.rice = import ./targets/rice inputs;
+    nixosConfigurations.rice = import ./targets/rice/default.nix inputs;
   };
 }
