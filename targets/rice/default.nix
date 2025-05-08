@@ -1,4 +1,4 @@
-inputs @ { nixpkgs, home-manager, nixos-hardware, pkgs, ... }:
+inputs @ { nixpkgs, home-manager, nixos-hardware, ... }:
   nixpkgs.lib.nixosSystem {
     system = "x86_64-linux";
     modules = [
@@ -11,20 +11,21 @@ inputs @ { nixpkgs, home-manager, nixos-hardware, pkgs, ... }:
         boot.loader.efi.canTouchEfiVariables = true;
         networking.hostName = "rice";
       }
+      ./laptop.nix
       ../../common.nix
-      ../../modules/keyboard/pt-br.nix
+      ../../modules/keyboard/br-abnt2.nix
       home-manager.nixosModules.home-manager
-      {
+      ({ pkgs, ... }: {
         users.users.perotti = {
           name = "perotti";
           home = "/home/perotti";
           isNormalUser = true;
-          extraGroups = ["audio" "video" "networkmanager" "wheel" ];
+          extraGroups = ["networkmanager" "wheel" ];
           shell = pkgs.zsh;
         };
         home-manager.useGlobalPkgs = true;
         home-manager.useUserPackages = true;
-        home-manager.users.perotti = ./home.nix;
-      }
+        home-manager.users.perotti = import ./home.nix;
+      })
     ];
   }
