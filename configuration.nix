@@ -122,7 +122,7 @@ in
     programs.htop.enable = true;
     programs.fastfetch.enable = true;
 
-    programs.foot.enable = enable;
+    programs.foot.enable = true;
     programs.foot.server.enable = true;
     programs.foot.settings = {
       main = {
