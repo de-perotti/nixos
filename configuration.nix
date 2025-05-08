@@ -42,16 +42,18 @@ in
   services.xserver.enable = true;
   services.xserver.displayManager.gdm.enable = true;
   services.xserver.displayManager.gdm.wayland = true;
-  services.xserver.desktopManager.gnome.enable = false;
   programs.sway.enable = true;
 
-  console.keyMap = "br-abnt2";
-  services.xserver.xkb = {
-    layout = "br";
-    variant = "abnt2";
-  };
+  console.useXkbConfig = true;
+  services.xserver.xkb.layout = "br";
+  services.xserver.xkb.variant = "abnt2";
 
   services.printing.enable = true;
+  
+  programs.light.enable = true;
+  programs.light.brightnessKeys.enable = true;
+
+  hardware.bluetooth.enable = true;
 
   hardware.pulseaudio.enable = false;
   security.rtkit.enable = true;
@@ -74,6 +76,8 @@ in
   ];
 
   users.users.perotti = {
+    name = "perotti";
+    home = "/home/perotti";
     isNormalUser = true;
     extraGroups = ["audio" "video" "networkmanager" "wheel" ];
     shell = pkgs.zsh;
@@ -90,20 +94,10 @@ in
 
     fonts.fontconfig.enable = true;
     fonts.fontconfig.defaultFonts = {
-      emoji = [
-        "Noto Color Emoji"
-      ];
-      monospace = [
-        "JetBrains Mono"
-        "JetBrains Mono Nerd Font"
-      ];
-      sansSerif = [
-        "Noto Sans"
-        "Noto Sans CJK SC"
-      ];
-      serif = [
-        "Noto Serif"
-      ];
+      emoji = [ "Noto Color Emoji" ];
+      monospace = [ "JetBrains Mono" ];
+      sansSerif = [ "Noto Sans" ];
+      serif = [ "Noto Serif" ];
     };
   
     home.packages = with pkgs; [
@@ -114,21 +108,20 @@ in
       docker-compose
       curl
       wget
-      terminator
-      vscode
       nerdfonts
     ];
 
     programs.htop.enable = true;
     programs.fastfetch.enable = true;
+    
 
     programs.foot.enable = true;
     programs.foot.server.enable = true;
     programs.foot.settings = {
       main = {
-        font = "JetBrains Mono:size=13";
+        font = "JetBrains Mono:size=13:weight=extrabold:line-height=1.2";
         letter-spacing=0;
-        dpi-aware = true;
+        dpi-aware = false;
       };
       cursor = {
         style = "block";
