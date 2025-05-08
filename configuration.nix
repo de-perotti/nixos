@@ -59,7 +59,7 @@
 
   fonts.packages = with pkgs; [
     noto-fonts
-    noto-fonts-cjk
+    noto-fonts-cjk-sans
     noto-fonts-emoji
     jetbrains-mono
   ];
@@ -69,8 +69,8 @@
   programs.zsh.syntaxHighlighting.enable = true;
   programs.zsh.zsh-autoenv.enable = true;
   programs.zsh.promptInit = "source ${pkgs.zsh-powerlevel10k}/share/zsh-powerlevel10k/powerlevel10k.zsh-theme";
-  programs.zsh.oh-my-zsh.enable = true;
-  programs.zsh.oh-my-zsh.plugins = [
+  programs.zsh.ohMyZsh.enable = true;
+  programs.zsh.ohMyZsh.plugins = [
     "colorize"
     "docker"
     "docker-compose"
