@@ -57,7 +57,6 @@
       size = 10000;
       save = 10000;
     };
-    
     plugins = [
       {
         name = "powerlevel10k";
