@@ -6,12 +6,14 @@ inputs @ { nixpkgs, home-manager, nixos-hardware, ... }:
       nixos-hardware.nixosModules.common-cpu-intel
       nixos-hardware.nixosModules.common-gpu-intel
       ./hardware-configuration.nix
-      ../../common.nix
-      home-manager.nixosModules.home-manager
       {
         boot.loader.systemd-boot.enable = true;
         boot.loader.efi.canTouchEfiVariables = true;
         networking.hostName = "rice";
+      }
+      ../../common.nix
+      home-manager.nixosModules.home-manager
+      {
         home-manager.useGlobalPkgs = true;
         home-manager.useUserPackages = true;
         home-manager.users.perotti = ./home.nix;
