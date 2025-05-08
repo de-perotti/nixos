@@ -9,6 +9,9 @@ inputs @ { nixpkgs, home-manager, nixos-hardware, ... }:
       ../../common.nix
       home-manager.nixosModules.home-manager
       {
+        boot.loader.systemd-boot.enable = true;
+        boot.loader.efi.canTouchEfiVariables = true;
+        networking.hostName = "rice";
         home-manager.useGlobalPkgs = true;
         home-manager.useUserPackages = true;
         home-manager.users.perotti = ./home.nix;

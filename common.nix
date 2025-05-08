@@ -1,9 +1,6 @@
 { pkgs, inputs, ... }:
 {
-  boot.loader.systemd-boot.enable = true;
-  boot.loader.efi.canTouchEfiVariables = true;
 
-  networking.hostName = "rice";
   networking.networkmanager.enable = true;
   networking.nameservers = [
     "1.1.1.1"
