@@ -65,7 +65,7 @@
       }
       {
         name = "powerlevel10k-config";
-        src = ../../p10k-config;
+        src = ../../config/p10k-config;
         file = ".p10k.zsh";
       }
     ];
@@ -131,7 +131,7 @@
         "${modifier}+Control+9" = "move container to workspace 9";
         "${modifier}+Control+0" = "move container to workspace 10";
       };
-      output.eDP-1.bg = "${../../wallpaper.jpg} fill";
+      output.eDP-1.bg = "${../../config/wallpaper.jpg} fill";
       output.eDP-1.mode = "1920x1080";
       # bars = [];
       workspaceAutoBackAndForth = true;
