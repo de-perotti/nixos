@@ -12,8 +12,16 @@ inputs @ { nixpkgs, home-manager, nixos-hardware, ... }:
         networking.hostName = "rice";
       }
       ../../common.nix
+      ../../modules/keyboard/pt-br.nix
       home-manager.nixosModules.home-manager
       {
+        users.users.perotti = {
+          name = "perotti";
+          home = "/home/perotti";
+          isNormalUser = true;
+          extraGroups = ["audio" "video" "networkmanager" "wheel" ];
+          shell = pkgs.zsh;
+        };
         home-manager.useGlobalPkgs = true;
         home-manager.useUserPackages = true;
         home-manager.users.perotti = ./home.nix;
