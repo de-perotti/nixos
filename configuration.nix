@@ -45,10 +45,10 @@ in
   services.xserver.desktopManager.gnome.enable = false;
   programs.sway.enable = true;
 
-  console.keyMap = "br-abnt2";
+  console.keyMap = "us-intl";
   services.xserver.xkb = {
-    layout = "br";
-    variant = "abnt2";
+    layout = "us";
+    variant = "intl";
   };
 
   services.printing.enable = true;
