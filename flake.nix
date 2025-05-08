@@ -9,19 +9,24 @@
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
   };
-  outputs = inputs@{ nixpkgs, home-manager, ... }:  {
-    nixosConfigurations.rice = nixpkgs.lib.nixosSystem {
-      system = "x86_64-linux";
-      modules = [
-        ./configuration.nix
-        home-manager.nixosModules.home-manager
-        {
-          home-manager.useGlobalPkgs = true;
-          home-manager.useUserPackages = true;
-          home-manager.users.perotti = ./home.nix;
-        }
-        ./hardware-configuration.nix
-      ];
+  outputs = inputs@{ self, nixpkgs, home-manager, nixos-hardware, ... }:  {
+    nixosConfigurations = {
+      rice = nixpkgs.lib.nixosSystem {
+        system = "x86_64-linux";
+        modules = [
+          ./configuration.nix
+          home-manager.nixosModules.home-manager
+          {
+            home-manager.useGlobalPkgs = true;
+            home-manager.useUserPackages = true;
+            home-manager.users.perotti = ./home.nix;
+          }
+          nixos-hardware.nixosModules.common-pc-laptop-ssd
+          nixos-hardware.nixosModules.common-cpu-intel
+          nixos-hardware.nixosModules.common-gpu-intel
+          ./hardware-configuration.nix
+        ];
+      };
     };
   };
 }
