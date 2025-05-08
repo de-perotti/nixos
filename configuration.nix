@@ -11,7 +11,7 @@
   networking.hostName = "rice";
   networking.networkmanager.enable = true;
   networking.firewall.enable = false;
-  networkings.nameservers = [
+  networking.nameservers = [
     "1.1.1.1"
     "1.0.0.1"
   ];
