@@ -1,20 +1,28 @@
-{ pkgs, ... }:
-{
-  imports = [
-    ./hardware-configuration.nix
-  ];
+# Edit this configuration file to define what should be installed on
+# your system.  Help is available in the configuration.nix(5) man page
+# and in the NixOS manual (accessible by running ‘nixos-help’).
 
-  boot.initrd.checkJournalingFS = true;
+{ config, pkgs, lib, ... }:
+let
+  home-manager = builtins.fetchTarball https://github.com/nix-community/home-manager/archive/release-24.11.tar.gz;
+in
+{
+  imports =
+    [ # Include the results of the hardware scan.
+      ./hardware-configuration.nix
+      (import "${home-manager}/nixos")
+    ];
+
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
   networking.hostName = "rice";
   networking.networkmanager.enable = true;
-  networking.firewall.enable = false;
   networking.nameservers = [
     "1.1.1.1"
     "1.0.0.1"
   ];
+  networking.firewall.enable = true;
   services.openssh.enable = true;
 
   time.timeZone = "America/Sao_Paulo";
@@ -37,25 +45,26 @@
   services.xserver.desktopManager.gnome.enable = false;
   programs.sway.enable = true;
 
-  programs.light.enable = true;
-  services.xserver.xkb.layout = "us";
-  services.xserver.xkb.variant = "intl";
-  console.keyMap = "us";
+  console.keyMap = "br-abnt2";
+  services.xserver.xkb = {
+    layout = "br";
+    variant = "abnt2";
+  };
 
   services.printing.enable = true;
 
   hardware.pulseaudio.enable = false;
   security.rtkit.enable = true;
-  services.pipewire.enable = true;
-  services.pipewire.alsa.enable = true;
-  services.pipewire.alsa.support32Bit = true;
-  services.pipewire.pulse.enable = true;
+  services.pipewire = {
+    enable = true;
+    alsa.enable = true;
+    alsa.support32Bit = true;
+    pulse.enable = true;
+  };
 
   nixpkgs.config.allowUnfree = true;
-
-  environment.systemPackages = with pkgs; [
-    zsh-powerlevel10k
-  ];
+  environment.systemPackages = with pkgs; [];
+  programs.zsh.enable = true;
 
   fonts.packages = with pkgs; [
     noto-fonts
@@ -64,38 +73,76 @@
     jetbrains-mono
   ];
 
-  programs.zsh.enable = true;
-  programs.zsh.autosuggestions.enable = true;
-  programs.zsh.syntaxHighlighting.enable = true;
-  programs.zsh.zsh-autoenv.enable = true;
-  programs.zsh.promptInit = "source ${pkgs.zsh-powerlevel10k}/share/zsh-powerlevel10k/powerlevel10k.zsh-theme";
-  programs.zsh.ohMyZsh.enable = true;
-  programs.zsh.ohMyZsh.plugins = [
-    "colorize"
-    "docker"
-    "docker-compose"
-    "git"
-    "emoji"
-    "history"
-    "node"
-    "npm"
-  ];
+  users.users.perotti = {
+    isNormalUser = true;
+    extraGroups = ["audio" "video" "networkmanager" "wheel" ];
+    shell = pkgs.zsh;
+  };
 
-  users.users.perotti.isNormalUser = true;
-  users.users.perotti.extraGroups = [ "wheel" "networkmanager" ];
-  users.users.perotti.shell = pkgs.zsh;
-  users.users.perotti.packages = with pkgs; [
-    google-chrome
-    jetbrains-toolbox
-    neovim
-    docker
-    docker-compose
-    git
-    curl
-    wget
-    terminator
-  ];
-
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
+  home-manager.useGlobalPkgs = true;
+  home-manager.useUserPackages = true;
+  home-manager.users.perotti = { pkgs, ... }: {
+    home.stateVersion = "24.11";
+    programs.home-manager.enable = true;
+  
+    home.username = "perotti";
+    home.homeDirectory = "/home/perotti";
+  
+    home.packages = with pkgs; [
+      google-chrome
+      jetbrains-toolbox
+      neovim
+      docker
+      docker-compose
+      curl
+      wget
+      terminator
+      vscode
+      nerdfonts
+    ];
+  
+    programs.zsh = { 
+      enable = true;
+      autosuggestion.enable = true;
+      syntaxHighlighting.enable = true;
+      dotDir = ".config/zsh";
+      history = {
+        path = "$HOME/.config/zsh/.zsh_history";
+        size = 10000;
+        save = 10000;
+      };
+      plugins = [
+        {
+          name = "powerlevel10k";
+          src = pkgs.zsh-powerlevel10k;
+          file = "share/zsh-powerlevel10k/powerlevel10k.zsh-theme";
+        }
+        {
+          name = "powerlevel10k-config";
+          src = ./p10k-config;
+          file = ".p10k.zsh";
+        }
+      ];
+      oh-my-zsh = {
+        enable = true;
+        plugins = [
+          "colorize"
+          "docker"
+          "docker-compose"
+          "git"
+          "emoji"
+          "history"
+          "node"
+          "npm"
+        ];
+      };
+    };
+  
+    programs.git.enable = true;
+    programs.git.userName = "de-perotti";
+    programs.git.userEmail = "perottilds@gmail.com";
+  };
+  
+  nix.settings.experimental-features = ["nix-command" "flakes"];
   system.stateVersion = "24.11";
 }

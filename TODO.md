@@ -1,3 +1,4 @@
+- [ ] Configure p10k
 - [ ] Use flakes instead
   - reference: https://github.com/KubqoA/dotfiles/tree/main
 - [ ] working basic GNOME
