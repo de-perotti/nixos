@@ -13,6 +13,7 @@
   - [x] wallpaper -> swww (needs flakes) -> used sway output bg
   - [x] keyboard br-abnt2 for lab
   - [ ] sway configuration
+    - ref: https://github.com/sainathadapa/i3-wm-config/blob/master/i3-manjaro-default-config-backup
     - [ ] default hidden
     - [ ] keybinds
       - [ ] toggle hidden / visible $MOD+M
