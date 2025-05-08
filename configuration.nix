@@ -120,6 +120,24 @@ in
     ];
 
     programs.htop.enable = true;
+    programs.fastfetch.enable = true;
+
+    programs.foot.enable = enable;
+    programs.foot.server.enable = true;
+    programs.foot.settings = {
+      main = {
+        font = "JetBrains Mono:size=13";
+        letter-spacing=0;
+        dpi-aware = true;
+      };
+      cursor = {
+        shape = "block";
+        blink = true;
+      };
+      mouse = {
+        hide-when-typing = true;
+      };
+    };
   
     programs.zsh = { 
       enable = true;
