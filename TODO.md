@@ -8,8 +8,11 @@
 - [ ] mothership configuration / home
 - [ ] lab configuration / home
 - [ ] glances? (htop alternative)
+- [ ] secret manager
+- [ ] https://github.com/nix-community/impermanence
 
 # General
+
 - Window manager: wayland
 - Terminal Emulator: foot
-- 
+-
