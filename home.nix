@@ -49,9 +49,6 @@
 
   programs.zsh = { 
     enable = true;
-    shellAliases = {
-      v = "nvim";
-    };
     autosuggestion.enable = true;
     syntaxHighlighting.enable = true;
     dotDir = ".config/zsh";
@@ -60,6 +57,7 @@
       size = 10000;
       save = 10000;
     };
+    
     plugins = [
       {
         name = "powerlevel10k";
