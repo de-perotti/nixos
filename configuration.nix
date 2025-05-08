@@ -53,6 +53,10 @@
 
   nixpkgs.config.allowUnfree = true;
   environment.systemPackages = with pkgs; [];
+  virtualisation.docker.rootless = {
+    enable = true;
+    setSocketVariable = true;
+  };
   programs.zsh.enable = true;
   security.polkit.enable = true;
 

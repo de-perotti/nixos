@@ -1,4 +1,6 @@
 { pkgs, config, lib, ... }: {
+  nix.settings.experimental-features = [ "nix-command" "flakes" ];
+
   home.stateVersion = "24.11";
   programs.home-manager.enable = true;
 
