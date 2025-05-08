@@ -4,6 +4,9 @@
 
   home.username = "perotti";
   home.homeDirectory = "/home/perotti";
+  home.sessionVariables = {
+    EDITOR = "nvim";
+  };
 
   fonts.fontconfig.enable = true;
   fonts.fontconfig.defaultFonts = {
@@ -46,6 +49,9 @@
 
   programs.zsh = { 
     enable = true;
+    shellAliases = {
+      v = "nvim";
+    };
     autosuggestion.enable = true;
     syntaxHighlighting.enable = true;
     dotDir = ".config/zsh";
