@@ -88,6 +88,9 @@
   programs.git.userName = "de-perotti";
   programs.git.userEmail = "perottilds@gmail.com";
 
+  programs.yazi.enable = true;
+  programs.yazi.enableZshIntegration = true;
+
   wayland.windowManager.sway = {
     enable = true;
     wrapperFeatures.gtk = true; # Fixes common issues with GTK 3 apps

@@ -3,19 +3,20 @@
 - [ ] lab
   - [x] extra-experimental-features in nixprofile
   - [x] rootless docker on startup
-  - [ ] file manager
-    - [ ] superfile?
-    - [ ] yazi?
-    - services.gvfs.enable = true; # Mount, trash, and other functionalities
-    - services.tumbler.enable = true; # Thumbnail support for images
+  - [x] file manager
+    - [-] ~~superfile?~~ (doesnt exist)
+    - [x] yazi?
   - [x] Wayland
   - [x] Configure p10k
   - [x] wallpaper -> swww (needs flakes) -> used sway output bg
   - [x] keyboard br-abnt2 for lab
   - [ ] sway configuration
+    - [ ] sleep
+    - [ ] hibernate
+    - [ ] lock
     - [ ] able to take screenshots
     - ref: https://github.com/sainathadapa/i3-wm-config/blob/master/i3-manjaro-default-config-backup
-    - [ ] default hidden
+    - [ ] default hidden bar
     - [ ] keybinds
       - [ ] toggle hidden / visible $MOD+M
       - [ ] google-chrome
@@ -37,6 +38,8 @@
   - [ ] lab configuration / home
   - [ ] glances? (htop alternative)
   - [ ] https://github.com/nix-community/impermanence
+  - [ ] services.gvfs.enable = true; # Mount, trash, and other functionalities
+  - [ ] services.tumbler.enable = true; # Thumbnail support for images
 - [ ] Mothership
   - [ ] keyboard us-intl for mothership
   - [ ] mothership configuration / home
