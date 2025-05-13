@@ -72,6 +72,9 @@
   - [ ] https://github.com/nix-community/impermanence
   - [ ] services.gvfs.enable = true; # Mount, trash, and other functionalities
   - [ ] services.tumbler.enable = true; # Thumbnail support for images
+- [ ] stream
+  - [ ] configure alerts
+  - [ ] 
 - [ ] Mothership
   - [ ] keyboard us-intl for mothership
   - [ ] mothership configuration / home

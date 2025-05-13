@@ -32,6 +32,7 @@
     btop
     rofimoji
     vlc
+    stremio
   ];
 
   programs.fastfetch.enable = true;
