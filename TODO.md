@@ -1,6 +1,7 @@
 - [x] Use flakes instead
   - reference: https://github.com/KubqoA/dotfiles/tree/main
 - [ ] lab
+  - [ ] sddm login https://wiki.archlinux.org/title/SDDM#Wayland
   - [x] extra-experimental-features in nixprofile
   - [x] rootless docker on startup
   - [x] ~~FN keys~~ (fucked)
@@ -16,9 +17,9 @@
   - [ ] sway configuration
     - [ ] gnome-like options
       - [ ] network
-      - [ ] brightness
-      - [ ] volume
-      - [ ] input / output
+      - [x] brightness
+      - [x] volume
+      - [x] input / output
     - [ ] app launcher (wofi?)
     - [ ] non-gnome lock screen
     - [ ] sleep
@@ -51,8 +52,10 @@
     - [ ] swaybar
     - [ ] swaync
     - [ ] zsh
-    - [ ] cursor
-    - [-] ~~greeter~~ (using autologin)
+    - [ ] cursor (gtk?)
+    - [ ] swaylock
+    - [ ] wofi
+    - [ ] greeter for logout
   - [ ] secret manager
   - [ ] lab configuration / home
   - [ ] glances? (htop alternative)

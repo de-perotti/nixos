@@ -27,6 +27,7 @@
     vscode
     libnotify
     pwvucontrol
+    networkmanagerapplet
   ];
 
   programs.htop.enable = true;
@@ -108,16 +109,14 @@
     wrapperFeatures.gtk = true; # Fixes common issues with GTK 3 apps
     extraConfig = ''
         bindsym ${modifier}+Shift+0 mode "$mode_system"
-        set $mode_system (l)ock, (e)xit, switch_(u)ser, (s)uspend, (h)ibernate, (r)eboot, (Shift+s)hutdown
+        set $mode_system (l)ock, (e)xit, (s)uspend, (h)ibernate, (r)eboot, (Shift+s)hutdown
         mode "$mode_system" {
-        # reference https://github.com/amanusk/i3/blob/master/i3exit
-        # TODO lock
-        # bindsym l exec --no-startup-id i3exit lock, mode "default"
-        # bindsym s exec --no-startup-id i3exit suspend, mode "default"
-        # bindsym h exec --no-startup-id i3exit hibernate, mode "default"
-          bindsym e exec --no-startup-id swaymsg exit, mode "default"
-          bindsym r exec --no-startup-id systemctl reboot, mode "default"
-          bindsym Shift+s exec --no-startup-id systemctl poweroff, mode "default"
+          bindsym l exec --no-startup-id ${pkgs.swaylock}/bin/swaylock; mode "default"
+          bindsym s exec --no-startup-id ${pkgs.swaylock}/bin/swaylock -f && systemctl suspend; mode "default"
+          bindsym h exec --no-startup-id ${pkgs.swaylock}/bin/swaylock -f && systemctl hibernate; mode "default"
+          bindsym e exec --no-startup-id swaymsg exit; mode "default"
+          bindsym r exec --no-startup-id systemctl reboot; mode "default"
+          bindsym Shift+s exec --no-startup-id systemctl poweroff; mode "default"
 
         # exit system mode: "Enter" or "Escape"
           bindsym Return mode "default"
@@ -193,16 +192,17 @@
         "${modifier}+r" = "mode resize";
         "${modifier}+w" = "layout tabbed";
         "${modifier}+Return" = "exec ${pkgs.foot}/bin/foot";
-        "${modifier}+Shift+Return" = "exec ${pkgs.pwvucontrol}/bin/pwvucontrol";
-        "${modifier}+Ctrl+Return" = "exec ${pkgs.blueman}/bin/blueman-manager";
+        "${modifier}+Shift+Return" = "exec ${pkgs.pwvucontrol}/bin/pwvucontrol"; # Audio
+        "${modifier}+Ctrl+Return" = "exec ${pkgs.blueman}/bin/blueman-manager"; # Bluetooth
+        "${modifier}+Ctrl+Shift+Return" = "exec ${pkgs.networkmanagerapplet}/bin/nm-connection-editor"; # Internet
         "${modifier}+F1" = "exec ${pkgs.jetbrains-toolbox}/bin/jetbrains-toolbox";
         "${modifier}+F2" = "exec ${pkgs.google-chrome}/bin/google-chrome-stable";
         "${modifier}+F3" = "exec ${pkgs.foot}/bin/foot ${pkgs.yazi}/bin/yazi";
         "${modifier}+Shift+n" = "exec ${pkgs.swaynotificationcenter}/bin/swaync-client -t -sw";
-        "${modifier}+7" = "exec ${pkgs.pulseaudio}/bin/pactl -- set-sink-volume 0 -10%";
-        "${modifier}+8" = "exec ${pkgs.pulseaudio}/bin/pactl -- set-sink-volume 0 +10%";
-        "${modifier}+9" = "exec ${pkgs.brightnessctl}/bin/brightnessctl set 10%- -q";
-        "${modifier}+0" = "exec ${pkgs.brightnessctl}/bin/brightnessctl set +10% -q";
+        "${modifier}+7" = "exec ${pkgs.pulseaudio}/bin/pactl -- set-sink-volume 0 -10%"; # Volume down
+        "${modifier}+8" = "exec ${pkgs.pulseaudio}/bin/pactl -- set-sink-volume 0 +10%"; # Volume up
+        "${modifier}+9" = "exec ${pkgs.brightnessctl}/bin/brightnessctl set 10%- -q"; # Brightness down
+        "${modifier}+0" = "exec ${pkgs.brightnessctl}/bin/brightnessctl set +10% -q"; # Brightness up
       };
       output."*".bg = "${wallpaper} fill";
       output."*".mode = "1920x1080";
