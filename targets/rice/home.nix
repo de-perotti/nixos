@@ -107,6 +107,19 @@
       window.border = 0;
       window.hideEdgeBorders = "both";
       window.titlebar = false;
+      input = {
+        "type:touchpad" = {
+          accel_profile = "flat";
+          natural_scroll = "enabled";
+          tap = "enabled";
+        };
+        "type:keyboard" = {
+          xkb_layout = "br";
+          xkb_variant = "thinkpad";
+          repeat_delay = "400";
+          repeat_rate = "120";
+        };
+      };
       keybindings = let
         modifier = config.wayland.windowManager.sway.config.modifier;
       in lib.mkOptionDefault {

@@ -2,7 +2,7 @@
   - reference: https://github.com/KubqoA/dotfiles/tree/main
 - [ ] lab
   - [x] extra-experimental-features in nixprofile
-  - [ ] rootless docker on startup
+  - [x] rootless docker on startup
   - [ ] file manager
     - [ ] superfile?
     - [ ] yazi?
@@ -13,6 +13,7 @@
   - [x] wallpaper -> swww (needs flakes) -> used sway output bg
   - [x] keyboard br-abnt2 for lab
   - [ ] sway configuration
+    - [ ] able to take screenshots
     - ref: https://github.com/sainathadapa/i3-wm-config/blob/master/i3-manjaro-default-config-backup
     - [ ] default hidden
     - [ ] keybinds
@@ -28,9 +29,10 @@
     - [ ] fonts
     - [ ] app launcher (wofi?)
   - [ ] FN keys
+  - [x] correct keyboard layout (br-thinkpad)
   - [ ] fn function keys
-  - [ ] touchpad click on tap
-  - [ ] touchpad natural scroll
+  - [x] touchpad click on tap
+  - [x] touchpad natural scroll
   - [ ] secret manager
   - [ ] lab configuration / home
   - [ ] glances? (htop alternative)
