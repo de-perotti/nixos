@@ -1,5 +1,5 @@
 { ... }: {
-  console.useXkbConfig = true;
+  console.keyMap = "br";
   services.xserver.xkb.layout = "br";
-  services.xserver.xkb.variant = "abnt2";
+  services.xserver.xkbVariant = "abnt2";
 }

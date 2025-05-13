@@ -9,11 +9,8 @@
     ./modules/docker/rootless.nix
     ./modules/zsh/common.nix
   ];
-
   services.printing.enable = true;
-
   nixpkgs.config.allowUnfree = true;
   environment.systemPackages = with pkgs; [];
-
   system.stateVersion = "24.11";
 }
