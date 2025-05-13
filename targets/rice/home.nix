@@ -93,6 +93,11 @@
   programs.yazi.enable = true;
   programs.yazi.enableZshIntegration = true;
 
+  programs.wofi.enable = true;
+  programs.wofi.settings = {
+    location = "center";
+  };
+
   services.swaync.enable = true;
 
   wayland.windowManager.sway = let
@@ -175,14 +180,15 @@
         "${modifier}+Shift+q" = "kill";
         "${modifier}+Shift+space" = "floating toggle";
         "${modifier}+h" = "splith; ${notify} 'Horizontal split'";
-        "${modifier}+d" = "exec ${pkgs.dmenu}/bin/dmenu_path | ${pkgs.dmenu}/bin/dmenu | ${pkgs.findutils}/bin/xargs swaymsg exec --";
+        # "${modifier}+d" = "exec ${pkgs.dmenu}/bin/dmenu_path | ${pkgs.dmenu}/bin/dmenu | ${pkgs.findutils}/bin/xargs swaymsg exec --";
+        # "${modifier}+Ctrl+space" = "exec ${pkgs.wofi}/bin/wofi --show run | ${pkgs.findutils}/bin/xargs swaymsg exec --";
+        "${modifier}+space" = "exec ${pkgs.wofi}/bin/wofi -I --show drun | ${pkgs.findutils}/bin/xargs swaymsg exec --";
         "${modifier}+e" = "layout toggle split";
         "${modifier}+f" = "fullscreen toggle";
         "${modifier}+m" = "bar mode toggle";
         "${modifier}+Shift+minus" = "move scratchpad";
         "${modifier}+minus" = "scratchpad show";
         "${modifier}+s" = "layout stacking";
-        "${modifier}+space" = "focus mode_toggle";
         "${modifier}+v" = "splitv; ${notify} 'Vertical split'";
         "${modifier}+r" = "mode resize";
         "${modifier}+w" = "layout tabbed";
