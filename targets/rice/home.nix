@@ -31,6 +31,7 @@
     sway-contrib.grimshot
     btop
     rofimoji
+    vlc
   ];
 
   programs.fastfetch.enable = true;
@@ -88,6 +89,11 @@
       ];
     };
   };
+
+  programs.obs-studio.enable = true;
+  programs.obs-studio.plugins = with pkgs; [
+    obs-studio-plugins.wlrobs
+  ];
 
   programs.git.enable = true;
   programs.git.userName = "de-perotti";
