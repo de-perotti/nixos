@@ -107,7 +107,7 @@
     enable = true;
     wrapperFeatures.gtk = true; # Fixes common issues with GTK 3 apps
     extraConfig = ''
-        bindsym ${modifier}+0 mode "$mode_system"
+        bindsym ${modifier}+Shift+0 mode "$mode_system"
         set $mode_system (l)ock, (e)xit, switch_(u)ser, (s)uspend, (h)ibernate, (r)eboot, (Shift+s)hutdown
         mode "$mode_system" {
         # reference https://github.com/amanusk/i3/blob/master/i3exit
@@ -199,6 +199,10 @@
         "${modifier}+F2" = "exec ${pkgs.google-chrome}/bin/google-chrome-stable";
         "${modifier}+F3" = "exec ${pkgs.foot}/bin/foot ${pkgs.yazi}/bin/yazi";
         "${modifier}+Shift+n" = "exec ${pkgs.swaynotificationcenter}/bin/swaync-client -t -sw";
+        "${modifier}+7" = "exec ${pkgs.pulseaudio}/bin/pactl -- set-sink-volume 0 -10%";
+        "${modifier}+8" = "exec ${pkgs.pulseaudio}/bin/pactl -- set-sink-volume 0 +10%";
+        "${modifier}+9" = "exec ${pkgs.brightnessctl}/bin/brightnessctl set 10%- -q";
+        "${modifier}+0" = "exec ${pkgs.brightnessctl}/bin/brightnessctl set +10% -q";
       };
       output."*".bg = "${wallpaper} fill";
       output."*".mode = "1920x1080";
