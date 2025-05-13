@@ -182,6 +182,7 @@
         "${modifier}+v" = "splitv";
         "${modifier}+w" = "layout tabbed";
         "${modifier}+Return" = "exec ${pkgs.foot}/bin/foot";
+        "${modifier}+F2" = "exec ${pkgs.google-chrome}/bin/google-chrome-stable";
       };
       output.eDP-1.bg = "${wallpaper} fill";
       output.eDP-1.mode = "1920x1080";

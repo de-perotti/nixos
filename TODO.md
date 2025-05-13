@@ -3,6 +3,8 @@
 - [ ] lab
   - [x] extra-experimental-features in nixprofile
   - [x] rootless docker on startup
+  - [ ] FN keys
+  - [ ] fn function keys
   - [x] file manager
     - [-] ~~superfile?~~ (doesnt exist)
     - [x] yazi?
@@ -14,13 +16,17 @@
     - [ ] sleep
     - [ ] hibernate
     - [ ] lock
+    - [x] shutdown
+    - [x] reboot
+    - [x] logoff
     - [ ] able to take screenshots
     - ref: https://github.com/sainathadapa/i3-wm-config/blob/master/i3-manjaro-default-config-backup
-    - [ ] default hidden bar
+    - [x] default hidden bar
+    - [ ] notifications
     - [ ] keybinds
-      - [ ] toggle hidden / visible $MOD+M
+      - [x] toggle hidden / visible $MOD+M
       - [ ] google-chrome
-      - [ ] logout mode (same as manjaro)
+      - [x] logout mode (same as manjaro)
     - [ ] bars
       - [ ] sections
       - [ ] texts
@@ -29,9 +35,7 @@
     - [ ] colors
     - [ ] fonts
     - [ ] app launcher (wofi?)
-  - [ ] FN keys
   - [x] correct keyboard layout (br-thinkpad)
-  - [ ] fn function keys
   - [x] touchpad click on tap
   - [x] touchpad natural scroll
   - [ ] secret manager
