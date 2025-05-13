@@ -8,6 +8,7 @@
   - [x] file manager
     - [-] ~~superfile?~~ (doesnt exist)
     - [x] yazi?
+  - [x] auto login
   - [x] Wayland
   - [x] Configure p10k
   - [x] wallpaper -> swww (needs flakes) -> used sway output bg
@@ -29,7 +30,7 @@
     - [ ] able to take screenshots
     - ref: https://github.com/sainathadapa/i3-wm-config/blob/master/i3-manjaro-default-config-backup
     - [x] default hidden bar
-    - [ ] notifications
+    - [x] notifications
     - [ ] keybinds
       - [ ] gnome-like options (super+f1)
       - [x] toggle hidden / visible $MOD+M
@@ -42,10 +43,16 @@
       - [ ] modes
     - [ ] commands
     - [ ] colors
-    - [ ] fonts
+    - [x] fonts
   - [x] correct keyboard layout (br-thinkpad)
   - [x] touchpad click on tap
   - [x] touchpad natural scroll
+  - [ ] styling
+    - [ ] swaybar
+    - [ ] swaync
+    - [ ] zsh
+    - [ ] cursor
+    - [-] ~~greeter~~ (using autologin)
   - [ ] secret manager
   - [ ] lab configuration / home
   - [ ] glances? (htop alternative)

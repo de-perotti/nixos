@@ -25,6 +25,7 @@
     wget
     nerdfonts
     vscode
+    libnotify
   ];
 
   programs.htop.enable = true;
@@ -91,6 +92,8 @@
   programs.yazi.enable = true;
   programs.yazi.enableZshIntegration = true;
 
+  services.swaync.enable = true;
+
   wayland.windowManager.sway = let
       wallpaper = ../../config/wallpaper.jpg;
       modifier = "Mod4";
@@ -115,6 +118,9 @@
           bindsym Escape mode "default"
         }
       '';
+    extraSessionCommands = ''
+      export GDK_BACKEND=wayland
+    '';
     config = {
       focus.followMouse = false;
       focus.mouseWarping = false;
@@ -136,7 +142,9 @@
           repeat_rate = "120";
         };
       };
-      keybindings = {
+      keybindings = let
+       notify = "exec ${pkgs.libnotify}/bin/notify-send";
+      in {
         "${modifier}+1" = "workspace number 1";
         "${modifier}+2" = "workspace number 2";
         "${modifier}+3" = "workspace number 3";
@@ -157,37 +165,33 @@
         "${modifier}+Shift+Left" = "move left";
         "${modifier}+Shift+Right" = "move right";
         "${modifier}+Shift+Up" = "move up";
-        "${modifier}+Shift+c" = "reload";
+        "${modifier}+Shift+c" = "reload; ${notify} 'Sway reloaded'";
         "${modifier}+Shift+e" = "exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -b 'Yes, exit sway' 'swaymsg exit'";
         "${modifier}+Shift+h" = "move left";
         "${modifier}+Shift+j" = "move down";
         "${modifier}+Shift+k" = "move up";
         "${modifier}+Shift+l" = "move right";
-        "${modifier}+Shift+minus" = "move scratchpad";
         "${modifier}+Shift+q" = "kill";
         "${modifier}+Shift+space" = "floating toggle";
-        "${modifier}+a" = "focus parent";
-        "${modifier}+b" = "splith";
+        "${modifier}+h" = "splith; ${notify} 'Horizontal split'";
         "${modifier}+d" = "exec ${pkgs.dmenu}/bin/dmenu_path | ${pkgs.dmenu}/bin/dmenu | ${pkgs.findutils}/bin/xargs swaymsg exec --";
         "${modifier}+e" = "layout toggle split";
         "${modifier}+f" = "fullscreen toggle";
-        "${modifier}+h" = "focus left";
-        "${modifier}+j" = "focus down";
-        "${modifier}+k" = "focus up";
-        "${modifier}+l" = "focus right";
         "${modifier}+m" = "bar mode toggle";
+        "${modifier}+Shift+minus" = "move scratchpad";
         "${modifier}+minus" = "scratchpad show";
         "${modifier}+s" = "layout stacking";
         "${modifier}+space" = "focus mode_toggle";
-        "${modifier}+v" = "splitv";
+        "${modifier}+v" = "splitv; ${notify} 'Vertical split'";
         "${modifier}+r" = "mode resize";
         "${modifier}+w" = "layout tabbed";
         "${modifier}+Return" = "exec ${pkgs.foot}/bin/foot";
         "${modifier}+F2" = "exec ${pkgs.google-chrome}/bin/google-chrome-stable";
         "${modifier}+F3" = "exec ${pkgs.foot}/bin/foot ${pkgs.yazi}/bin/yazi";
+        "${modifier}+Shift+n" = "exec ${pkgs.swaynotificationcenter}/bin/swaync-client -t -sw";
       };
-      output.eDP-1.bg = "${wallpaper} fill";
-      output.eDP-1.mode = "1920x1080";
+      output."*".bg = "${wallpaper} fill";
+      output."*".mode = "1920x1080";
       bars = [
         {
           statusCommand = "${pkgs.i3status}/bin/i3status";
@@ -217,7 +221,8 @@
       ];
       workspaceAutoBackAndForth = true;
       startup = [
-        {command = "jetbrains-toolbox --minimize";}
+        { command = "${pkgs.swaynotificationcenter}/bin/swaync"; always = true; }
+        { command = "${pkgs.jetbrains-toolbox}/bin/jetbrains-toolbox --minimize"; }
       ];
     };
   };

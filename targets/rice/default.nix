@@ -27,7 +27,7 @@
         services.printing.enable = true;
         # programs.light.enable = true;
         # programs.light.brightnessKeys.enable = true;
-        # hardware.bluetooth.enable = true;
+        hardware.bluetooth.enable = true;
         imports = [
           ../../modules/i18n
           ../../modules/networking
