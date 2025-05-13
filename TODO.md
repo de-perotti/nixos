@@ -13,6 +13,13 @@
   - [x] wallpaper -> swww (needs flakes) -> used sway output bg
   - [x] keyboard br-abnt2 for lab
   - [ ] sway configuration
+    - [ ] gnome-like options
+      - [ ] network
+      - [ ] brightness
+      - [ ] volume
+      - [ ] input / output
+    - [ ] app launcher (wofi?)
+    - [ ] non-gnome lock screen
     - [ ] sleep
     - [ ] hibernate
     - [ ] lock
@@ -24,9 +31,11 @@
     - [x] default hidden bar
     - [ ] notifications
     - [ ] keybinds
+      - [ ] gnome-like options (super+f1)
       - [x] toggle hidden / visible $MOD+M
       - [x] google-chrome (super+f2)
       - [x] logout mode (same as manjaro)
+      - [x] fm (super+f3)
     - [ ] bars
       - [ ] sections
       - [ ] texts
@@ -34,7 +43,6 @@
     - [ ] commands
     - [ ] colors
     - [ ] fonts
-    - [ ] app launcher (wofi?)
   - [x] correct keyboard layout (br-thinkpad)
   - [x] touchpad click on tap
   - [x] touchpad natural scroll

@@ -46,7 +46,6 @@
       })
       # User with home manager
       ({ pkgs, ... }: {
-        
         users.users.perotti = {
           name = "perotti";
           home = "/home/perotti";
@@ -55,6 +54,8 @@
           shell = pkgs.zsh;
         };
         home-manager.users.perotti = import ./home.nix;
+        services.displayManager.autoLogin.enable = true;
+        services.displayManager.autoLogin.user = "perotti";
       })
     ];
   }
