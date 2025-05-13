@@ -180,6 +180,7 @@
         "${modifier}+s" = "layout stacking";
         "${modifier}+space" = "focus mode_toggle";
         "${modifier}+v" = "splitv";
+        "${modifier}+r" = "mode resize";
         "${modifier}+w" = "layout tabbed";
         "${modifier}+Return" = "exec ${pkgs.foot}/bin/foot";
         "${modifier}+F2" = "exec ${pkgs.google-chrome}/bin/google-chrome-stable";
