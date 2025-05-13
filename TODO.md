@@ -51,11 +51,19 @@
   - [x] touchpad natural scroll
   - [ ] styling
     - [ ] swaybar
+    - [ ] i3status
+      - [ ] volume
+      - [ ] brightness
+      - [ ] wifi / ethernet connection name & speed
+      - [ ] ram free
+      - [ ] disk free
+      - [ ] date iso
+      - [ ] battery %
     - [ ] swaync
     - [ ] zsh
     - [ ] cursor (gtk?)
     - [ ] swaylock
-    - [ ] wofi
+    - [ ] wofi https://cloudninja.pw/docs/wofi.html
     - [ ] greeter for logout
   - [ ] secret manager
   - [ ] lab configuration / home

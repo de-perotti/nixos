@@ -100,6 +100,24 @@
     location = "center";
   };
 
+  programs.i3status.enable = true;
+  programs.i3status.modules = {
+    "volume master" = {
+      position = 1;
+      settings = {
+        format = "♪ %volume";
+        format_muted = "♪ muted (%volume)";
+        device = "default";
+      };
+    };
+    "disk /" = {
+      position = 2;
+      settings = {
+        format = "%avail";
+      };
+    };
+  };
+
   services.swaync.enable = true;
 
   wayland.windowManager.sway = let
@@ -115,6 +133,7 @@
           bindsym l exec --no-startup-id ${pkgs.swaylock}/bin/swaylock; mode "default"
           bindsym s exec --no-startup-id ${pkgs.swaylock}/bin/swaylock -f && systemctl suspend; mode "default"
           bindsym h exec --no-startup-id ${pkgs.swaylock}/bin/swaylock -f && systemctl hibernate; mode "default"
+          # TODO: should I used pkgs reference here?
           bindsym e exec --no-startup-id swaymsg exit; mode "default"
           bindsym r exec --no-startup-id systemctl reboot; mode "default"
           bindsym Shift+s exec --no-startup-id systemctl poweroff; mode "default"
