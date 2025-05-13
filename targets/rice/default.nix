@@ -28,6 +28,7 @@
         # programs.light.enable = true;
         # programs.light.brightnessKeys.enable = true;
         hardware.bluetooth.enable = true;
+        services.blueman.enable = true;
         imports = [
           ../../modules/i18n
           ../../modules/networking

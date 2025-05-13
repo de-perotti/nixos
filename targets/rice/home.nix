@@ -26,6 +26,7 @@
     nerdfonts
     vscode
     libnotify
+    pwvucontrol
   ];
 
   programs.htop.enable = true;
@@ -186,6 +187,9 @@
         "${modifier}+r" = "mode resize";
         "${modifier}+w" = "layout tabbed";
         "${modifier}+Return" = "exec ${pkgs.foot}/bin/foot";
+        "${modifier}+Shift+Return" = "exec ${pkgs.pwvucontrol}/bin/pwvucontrol";
+        "${modifier}+Ctrl+Return" = "exec ${pkgs.blueman}/bin/blueman-manager";
+        "${modifier}+F1" = "exec ${pkgs.jetbrains-toolbox}/bin/jetbrains-toolbox";
         "${modifier}+F2" = "exec ${pkgs.google-chrome}/bin/google-chrome-stable";
         "${modifier}+F3" = "exec ${pkgs.foot}/bin/foot ${pkgs.yazi}/bin/yazi";
         "${modifier}+Shift+n" = "exec ${pkgs.swaynotificationcenter}/bin/swaync-client -t -sw";
