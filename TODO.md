@@ -15,29 +15,30 @@
   - [x] wallpaper -> swww (needs flakes) -> used sway output bg
   - [x] keyboard br-abnt2 for lab
   - [ ] sway configuration
-    - [ ] gnome-like options
-      - [ ] network
+    - [x] gnome-like options
+      - [x] network
       - [x] brightness
       - [x] volume
       - [x] input / output
-    - [ ] app launcher (wofi?)
-    - [ ] non-gnome lock screen
-    - [ ] sleep
-    - [ ] hibernate
-    - [ ] lock
+    - [x] app launcher (wofi?)
+    - [x] non-gnome lock screen
+    - [x] sleep
+    - [x] hibernate
+    - [x] lock
     - [x] shutdown
     - [x] reboot
     - [x] logoff
-    - [ ] able to take screenshots
+    - [x] able to take screenshots
     - ref: https://github.com/sainathadapa/i3-wm-config/blob/master/i3-manjaro-default-config-backup
     - [x] default hidden bar
     - [x] notifications
-    - [ ] keybinds
-      - [ ] gnome-like options (super+f1)
+    - [x] keybinds
       - [x] toggle hidden / visible $MOD+M
       - [x] google-chrome (super+f2)
       - [x] logout mode (same as manjaro)
       - [x] fm (super+f3)
+    - [ ] volume overlay
+    - [ ] brightness overlay
     - [ ] bars
       - [ ] sections
       - [ ] texts

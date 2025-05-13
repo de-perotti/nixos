@@ -28,9 +28,10 @@
     libnotify
     pwvucontrol
     networkmanagerapplet
+    sway-contrib.grimshot
+    btop
   ];
 
-  programs.htop.enable = true;
   programs.fastfetch.enable = true;
 
   programs.foot.enable = true;
@@ -198,11 +199,15 @@
         "${modifier}+F1" = "exec ${pkgs.jetbrains-toolbox}/bin/jetbrains-toolbox";
         "${modifier}+F2" = "exec ${pkgs.google-chrome}/bin/google-chrome-stable";
         "${modifier}+F3" = "exec ${pkgs.foot}/bin/foot ${pkgs.yazi}/bin/yazi";
+        "${modifier}+F4" = "exec ${pkgs.foot}/bin/foot ${pkgs.btop}/bin/btop";
         "${modifier}+Shift+n" = "exec ${pkgs.swaynotificationcenter}/bin/swaync-client -t -sw";
         "${modifier}+7" = "exec ${pkgs.pulseaudio}/bin/pactl -- set-sink-volume 0 -10%"; # Volume down
         "${modifier}+8" = "exec ${pkgs.pulseaudio}/bin/pactl -- set-sink-volume 0 +10%"; # Volume up
         "${modifier}+9" = "exec ${pkgs.brightnessctl}/bin/brightnessctl set 10%- -q"; # Brightness down
         "${modifier}+0" = "exec ${pkgs.brightnessctl}/bin/brightnessctl set +10% -q"; # Brightness up
+        "Print" = "exec --no-startup-id ${pkgs.sway-contrib.grimshot}/bin/grimshot --notify save screen";
+        "Ctrl+Print" = "exec --no-startup-id ${pkgs.sway-contrib.grimshot}/bin/grimshot --notify save window";
+        "Ctrl+Shift+Print" = "exec --no-startup-id ${pkgs.sway-contrib.grimshot}/bin/grimshot --notify save area";
       };
       output."*".bg = "${wallpaper} fill";
       output."*".mode = "1920x1080";
