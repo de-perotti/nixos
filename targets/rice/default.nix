@@ -3,9 +3,10 @@
     system = "x86_64-linux";
     modules = [
       ./hardware-configuration.nix
-      nixos-hardware.nixosModules.common-pc-laptop-ssd
       nixos-hardware.nixosModules.common-cpu-intel
       nixos-hardware.nixosModules.common-gpu-intel
+      nixos-hardware.nixosModules.common-pc-laptop
+      nixos-hardware.nixosModules.lenovo-ideapad-s145-15api
       {
         boot.loader.systemd-boot.enable = true;
         boot.loader.efi.canTouchEfiVariables = true;
