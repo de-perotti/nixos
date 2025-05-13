@@ -105,15 +105,11 @@
   programs.i3status-rust.bars = {
     "default" = {
       blocks = [
-        { block = "net"; format = " ($signal_strength) $ssid $graph_down $graph_up "; }
-        { block = "memory"; format = " $icon $mem_avail.eng(prefix:Mi)$swap_free.eng(prefix:Mi) "; }
-        { block = "cpu"; format = " $icon $barchart "; }
         { block = "sound"; }
         { block = "backlight"; }
-        { block = "disk_space"; }
         {
           block = "battery";
-          format = " $icon $time_remaining ";
+          format = " $icon $percentage ";
           full_format = " $icon 🔋 ";
           charging_format = " $icon $percentage ";
           empty_format = " $icon 🪫";
