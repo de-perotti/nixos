@@ -25,8 +25,6 @@
         services.xserver.xkb.layout = "br";
         services.xserver.xkb.variant = "thinkpad";
         services.printing.enable = true;
-        # programs.light.enable = true;
-        # programs.light.brightnessKeys.enable = true;
         hardware.bluetooth.enable = true;
         services.blueman.enable = true;
         imports = [

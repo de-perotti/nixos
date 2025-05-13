@@ -30,6 +30,7 @@
     networkmanagerapplet
     sway-contrib.grimshot
     btop
+    rofimoji
   ];
 
   programs.fastfetch.enable = true;
@@ -227,6 +228,7 @@
         "Print" = "exec --no-startup-id ${pkgs.sway-contrib.grimshot}/bin/grimshot --notify save screen";
         "Ctrl+Print" = "exec --no-startup-id ${pkgs.sway-contrib.grimshot}/bin/grimshot --notify save window";
         "Ctrl+Shift+Print" = "exec --no-startup-id ${pkgs.sway-contrib.grimshot}/bin/grimshot --notify save area";
+        "${modifier}+Ctrl+space" = "exec --no-startup-id ${pkgs.rofimoji}/bin/rofimoji";
       };
       output."*".bg = "${wallpaper} fill";
       output."*".mode = "1920x1080";
