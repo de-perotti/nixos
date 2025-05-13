@@ -37,8 +37,8 @@
       - [x] google-chrome (super+f2)
       - [x] logout mode (same as manjaro)
       - [x] fm (super+f3)
-    - [ ] volume overlay
-    - [ ] brightness overlay
+    - [-] ~~volume overlay~~(just use i3status)
+    - [-] ~~brightness overlay~~ (just use i3status)
     - [ ] bars
       - [ ] sections
       - [ ] texts
