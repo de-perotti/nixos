@@ -3,8 +3,8 @@
 - [ ] lab
   - [x] extra-experimental-features in nixprofile
   - [x] rootless docker on startup
-  - [ ] FN keys
-  - [ ] fn function keys
+  - [x] ~~FN keys~~ (fucked)
+  - [x] ~~fn function keys~~ (fucked)
   - [x] file manager
     - [-] ~~superfile?~~ (doesnt exist)
     - [x] yazi?
@@ -25,7 +25,7 @@
     - [ ] notifications
     - [ ] keybinds
       - [x] toggle hidden / visible $MOD+M
-      - [ ] google-chrome
+      - [x] google-chrome (super+f2)
       - [x] logout mode (same as manjaro)
     - [ ] bars
       - [ ] sections

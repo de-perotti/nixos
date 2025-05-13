@@ -184,6 +184,7 @@
         "${modifier}+w" = "layout tabbed";
         "${modifier}+Return" = "exec ${pkgs.foot}/bin/foot";
         "${modifier}+F2" = "exec ${pkgs.google-chrome}/bin/google-chrome-stable";
+        "${modifier}+F3" = "exec ${pkgs.foot}/bin/foot ${pkgs.yazi}/bin/yazi";
       };
       output.eDP-1.bg = "${wallpaper} fill";
       output.eDP-1.mode = "1920x1080";
