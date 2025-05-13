@@ -49,6 +49,7 @@
   - [x] correct keyboard layout (br-thinkpad)
   - [x] touchpad click on tap
   - [x] touchpad natural scroll
+  - [x] emoji picker
   - [ ] styling
     - [ ] swaybar
     - [ ] i3status

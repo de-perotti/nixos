@@ -101,21 +101,27 @@
     location = "center";
   };
 
-  programs.i3status.enable = true;
-  programs.i3status.modules = {
-    "volume master" = {
-      position = 1;
-      settings = {
-        format = "♪ %volume";
-        format_muted = "♪ muted (%volume)";
-        device = "default";
-      };
-    };
-    "disk /" = {
-      position = 2;
-      settings = {
-        format = "%avail";
-      };
+  programs.i3status-rust.enable = true;
+  programs.i3status-rust.bars = {
+    "default" = {
+      blocks = [
+        { block = "net"; format = " ($signal_strength) $ssid $graph_down $graph_up "; }
+        { block = "memory"; format = " $icon $mem_avail.eng(prefix:Mi)$swap_free.eng(prefix:Mi) "; }
+        { block = "cpu"; format = " $icon $barchart "; }
+        { block = "sound"; }
+        { block = "backlight"; }
+        { block = "disk_space"; }
+        {
+          block = "battery";
+          format = " $icon $time_remaining ";
+          full_format = " $icon 🔋 ";
+          charging_format = " $icon $percentage ";
+          empty_format = " $icon 🪫";
+          not_charging_format = " $icon 🔋 ";
+          missing_format = " 🖕🚫🔋 ";
+        }
+        { block = "time"; format = " $timestamp.datetime(f:'%a %d/%m %R') "; interval = 60; }
+      ];
     };
   };
 
@@ -234,7 +240,7 @@
       output."*".mode = "1920x1080";
       bars = [
         {
-          statusCommand = "${pkgs.i3status}/bin/i3status";
+          statusCommand = "${pkgs.i3status-rust}/bin/i3status-rs ${config.xdg.configHome}/i3status-rust/config-default.toml";
           command = "${pkgs.sway}/bin/swaybar";
           workspaceButtons = true;
           workspaceNumbers = true;
