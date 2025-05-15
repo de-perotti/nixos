@@ -1,4 +1,4 @@
-{ impermanence } : { pkgs, lib, ... }: {
+{ pkgs, lib, ... }: {
   system.stateVersion = "24.11";
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
   nixpkgs.config.allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) [
@@ -29,7 +29,7 @@
     extraGroups = [ "networkmanager" "wheel" ];
     shell = pkgs.zsh;
   };
-  home-manager.users.perotti = (import ./home-manager/home.nix { inherit impermanence; });
+  home-manager.users.perotti = ./home-manager/home.nix;
   services.greetd.settings = {
     initial_session = {
       command = "${pkgs.sway}/bin/sway";

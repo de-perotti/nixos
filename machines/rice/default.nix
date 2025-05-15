@@ -1,9 +1,9 @@
-{ nixpkgs, home-manager, nixos-hardware, impermanence, ... }:
+{ nixpkgs, home-manager, nixos-hardware, ... }:
   nixpkgs.lib.nixosSystem {
     system = "x86_64-linux";
     modules = [
       # Hardware
-      /etc/nixos/hardware-configuration.nix
+      ./hardware-configuration.nix
       nixos-hardware.nixosModules.common-cpu-intel
       nixos-hardware.nixosModules.common-gpu-intel
       nixos-hardware.nixosModules.common-pc-laptop
@@ -15,6 +15,6 @@
       }
       # Home manager
       home-manager.nixosModules.home-manager
-      (import ../../users/perotti { inherit impermanence; })
+      ../../users/perotti
     ];
   }
