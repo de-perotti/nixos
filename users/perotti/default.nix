@@ -1,6 +1,11 @@
-{ pkgs, home-manager, ... }: {
+{ pkgs, home-manager, lib, ... }: {
   system.stateVersion = "24.11";
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
+  nixpkgs.config.allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) [
+    "jetbrains-toolbox"
+    "google-chrome"
+    "vscode"
+  ];
   home-manager.useGlobalPkgs = true;
   home-manager.useUserPackages = true;
   environment.systemPackages = with pkgs; [];
