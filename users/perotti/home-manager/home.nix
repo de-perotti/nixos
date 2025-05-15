@@ -1,4 +1,4 @@
-{ pkgs, config, lib, ... }: {
+{ pkgs, config, lib, impermanence, ... }: {
   home.stateVersion = "24.11";
   programs.home-manager.enable = true;
 
@@ -35,6 +35,8 @@
   ];
 
   imports = [
+    # impermanence
+    ./impermanence.nix
     ./zsh.nix
     ./foot.nix
     ./sway.nix
