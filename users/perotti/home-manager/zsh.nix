@@ -9,6 +9,19 @@
       size = 10000;
       save = 10000;
     };
+    oh-my-zsh = {
+      enable = true;
+      plugins = [
+        "colorize"
+        "docker"
+        "docker-compose"
+        "git"
+        "emoji"
+        "history"
+        "node"
+        "npm"
+      ];
+    };
     plugins = [
       {
         name = "powerlevel10k";
@@ -26,18 +39,5 @@
         file = "fastfetch.sh";
       }
     ];
-    oh-my-zsh = {
-      enable = true;
-      plugins = [
-        "colorize"
-        "docker"
-        "docker-compose"
-        "git"
-        "emoji"
-        "history"
-        "node"
-        "npm"
-      ];
-    };
   };
 }
