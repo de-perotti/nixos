@@ -1,10 +1,11 @@
-{ config, pkgs, ... }: {
+{ ... }: {
   programs.zsh = { 
+    enable = true;
     autosuggestion.enable = true;
     syntaxHighlighting.enable = true;
-    dotDir = "${config.xdg.configHome}/zsh";
+    dotDir = ".config/zsh";
     history = {
-      path = "${config.xdg.configHome}/zsh/.zsh_history";
+      path = ".config/zsh/.zsh_history";
       size = 10000;
       save = 10000;
     };
