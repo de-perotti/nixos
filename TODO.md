@@ -1,7 +1,7 @@
 - [x] Use flakes instead
   - reference: https://github.com/KubqoA/dotfiles/tree/main
 - [ ] lab
-  - [ ] sddm login https://wiki.archlinux.org/title/SDDM#Wayland
+  - [x] ~~sddm login https://wiki.archlinux.org/title/SDDM#Wayland~~ (using agreety with autologin)
   - [x] extra-experimental-features in nixprofile
   - [x] rootless docker on startup
   - [x] ~~FN keys~~ (fucked)
