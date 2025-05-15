@@ -1,5 +1,8 @@
 { pkgs, ... }: {
-  home.pointerCursor.name = "Vanilla-DMZ";
-  home.pointerCursor.package = pkgs.vanilla-dmz;
-  home.pointerCursor.size = 64;
+  home.pointerCursor = {
+    name = "phinger-cursors-light";
+    package = pkgs.phinger-cursors;
+    size = 32;
+    gtk.enable = true;
+  };
 }
