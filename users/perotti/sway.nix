@@ -15,9 +15,6 @@
       background-image: url("${./home-manager/config/wallpaper.jpg}");
       background-size: cover;
       background-position: center;
-      filter: blur(1.2rem);
-      padding: 0;
-      margin: 0;
     }
   '';
   services.greetd.enable = true;
