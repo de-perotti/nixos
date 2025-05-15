@@ -9,10 +9,9 @@
       size = 10000;
       save = 10000;
     };
-    initContent = let
-      zshConfig = lib.mkOrder 1500 "${pkgs.fastfetch}/bin/fastfetch";
-    in
-      lib.mkMerge [ zshConfig ];
+    mkAfter = ''
+      ${pkgs.fastfetch}/bin/fastfetch
+    '';
     plugins = [
       {
         name = "powerlevel10k";
