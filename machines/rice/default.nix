@@ -1,4 +1,4 @@
-{ nixpkgs, home-manager, nixos-hardware, ... }:
+{ nixpkgs, home-manager, nixos-hardware, impermanence, ... }:
   nixpkgs.lib.nixosSystem {
     system = "x86_64-linux";
     modules = [
@@ -15,6 +15,6 @@
       }
       # Home manager
       home-manager.nixosModules.home-manager
-      ../../users/perotti
+      (import ../../users/perotti { inherit impermanence; })
     ];
   }
