@@ -4,6 +4,11 @@
   nix.settings.warn-dirty = false;
   nixpkgs.config.allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) [
     "jetbrains-toolbox"
+    "webstorm"
+    "rust-rover"
+    "pycharm-professional"
+    "idea-ultimate"
+    "goland"
     "google-chrome"
     "vscode"
   ];

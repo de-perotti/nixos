@@ -111,10 +111,9 @@
         "${modifier}+Shift+Return" = "exec ${pkgs.pwvucontrol}/bin/pwvucontrol"; # Audio
         "${modifier}+Ctrl+Return" = "exec ${pkgs.blueman}/bin/blueman-manager"; # Bluetooth
         "${modifier}+Ctrl+Shift+Return" = "exec ${pkgs.networkmanagerapplet}/bin/nm-connection-editor"; # Internet
-        "${modifier}+F1" = "exec ${pkgs.jetbrains-toolbox}/bin/jetbrains-toolbox";
+        "${modifier}+F1" = "exec ${pkgs.foot}/bin/foot ${pkgs.btop}/bin/btop";
         "${modifier}+F2" = "exec ${pkgs.google-chrome}/bin/google-chrome-stable";
         "${modifier}+F3" = "exec ${pkgs.foot}/bin/foot ${pkgs.yazi}/bin/yazi";
-        "${modifier}+F4" = "exec ${pkgs.foot}/bin/foot ${pkgs.btop}/bin/btop";
         "${modifier}+Shift+n" = "exec ${pkgs.swaynotificationcenter}/bin/swaync-client -t -sw";
         "${modifier}+7" = "exec ${pkgs.pulseaudio}/bin/pactl -- set-sink-volume 0 -10%"; # Volume down
         "${modifier}+8" = "exec ${pkgs.pulseaudio}/bin/pactl -- set-sink-volume 0 +10%"; # Volume up
@@ -157,7 +156,6 @@
       workspaceAutoBackAndForth = true;
       startup = [
         { command = "${pkgs.swaynotificationcenter}/bin/swaync"; always = true; }
-        { command = "${pkgs.jetbrains-toolbox}/bin/jetbrains-toolbox --minimize"; }
       ];
     };
   };
