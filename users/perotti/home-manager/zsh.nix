@@ -9,9 +9,6 @@
       size = 10000;
       save = 10000;
     };
-    mkAfter = ''
-      ${pkgs.fastfetch}/bin/fastfetch
-    '';
     plugins = [
       {
         name = "powerlevel10k";
@@ -20,8 +17,13 @@
       }
       {
         name = "powerlevel10k-config";
-        src = ./config/p10k-config;
-        file = ".p10k.zsh";
+        src = ./config/zsh/plugins;
+        file = "p10k-config/.p10k.zsh";
+      }
+      {
+        name = "fastfetch";
+        src = ./config/zsh/plugins;
+        file = "fastfetch.sh";
       }
     ];
     oh-my-zsh = {
