@@ -16,12 +16,8 @@
       background-position: center;
     }
 
-    clock_frame, #clock_frame, .clock_frame {
-      border: 1px solid red;
-    }
-
-    cancel_button, #cancel_button, .cancel_button {
-      border: 1px solid red;
+    button#cancel_button {
+      border: 1px solid blue;
     }
   '';
   services.greetd.enable = true;
