@@ -2,11 +2,11 @@
   programs.i3status-rust.enable = true;
   programs.i3status-rust.bars = {
     "default" = {
-      theme = "nord-dark";
-      icons = "awesome6";
+      theme = "native";
       blocks = [
         { block = "sound"; driver = "pulseaudio"; }
         { block = "backlight"; }
+        { block = "net"; }
         { block = "battery"; }
         { block = "time"; }
       ];

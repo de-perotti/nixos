@@ -38,6 +38,7 @@
     ./zsh.nix
     ./foot.nix
     ./sway.nix
+    ./gtk.nix
     ./obs-studio.nix
     ./git.nix
   ];
