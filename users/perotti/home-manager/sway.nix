@@ -3,8 +3,9 @@
   programs.i3status-rust.bars = {
     "default" = {
       theme = "native";
+      icons = "awesome6";
       blocks = [
-        { block = "sound"; driver = "pulseaudio"; format = " {$volume.eng(w:2)|🔇} "; max_vol = 1; }
+        { block = "sound"; driver = "pulseaudio"; }
         { block = "backlight"; }
         { block = "net"; }
         { block = "battery"; }
