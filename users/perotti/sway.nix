@@ -18,6 +18,7 @@
 
     button#cancel_button {
       border: 1px solid blue;
+      background-color: black;
     }
   '';
   services.greetd.enable = true;
