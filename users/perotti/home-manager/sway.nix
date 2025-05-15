@@ -124,7 +124,8 @@
         "Ctrl+Shift+Print" = "exec --no-startup-id ${pkgs.sway-contrib.grimshot}/bin/grimshot --notify save area";
         "${modifier}+Ctrl+space" = "exec --no-startup-id ${pkgs.rofimoji}/bin/rofimoji";
       };
-      output."*".bg = "${wallpaper} fill";
+      output."*".bg = "#000000 solid_color";
+      # output."*".bg = "${wallpaper} fill";
       output."*".mode = "1920x1080";
       bars = [
         {
