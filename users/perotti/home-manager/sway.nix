@@ -3,7 +3,7 @@
   programs.i3status-rust.bars = {
     "default" = {
       theme = "native";
-      icons = "awesome6";
+      icons = "emoji";
       blocks = [
         { block = "sound"; driver = "pulseaudio"; }
         { block = "backlight"; }
