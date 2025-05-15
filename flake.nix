@@ -2,6 +2,7 @@
   description = "My NixOS, macOS and home-manager configurations";
   nixConfig = {
     experimental-features = ["nix-command" "flakes"];
+    warn-dirty = false;
   };
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-24.11";
