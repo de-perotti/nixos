@@ -17,7 +17,7 @@
           --window-padding 0 \
           --prompt-padding 1 \
           --container-padding 1 \
-          --theme 'border=magenta;text=cyan;prompt=green;time=red;action=blue;button=yellow;container=black;input=#FF0000' \
+          --theme 'border=black;text=black;prompt=black;time=black;action=black;button=black;container=black;input=#FF0000' \
           --cmd sway
       '';
     };
