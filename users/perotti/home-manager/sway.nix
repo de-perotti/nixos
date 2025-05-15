@@ -2,26 +2,13 @@
   programs.i3status-rust.enable = true;
   programs.i3status-rust.bars = {
     "default" = {
-      theme = "dracula";
+      theme = "space-villain";
       icons = "awesome6";
       blocks = [
-        {
-          block = "sound";
-          driver = "pulseaudio";
-        }
-        {
-          block = "backlight";
-        }
-        {
-          block = "battery";
-          format = " $icon $percentage ";
-          full_format = " $icon 🔋 ";
-          charging_format = " $icon $percentage ";
-          empty_format = " $icon 🪫";
-          not_charging_format = " $icon 🔋 ";
-          missing_format = " 🖕🚫🔋 ";
-        }
-        { block = "time"; format = " $timestamp.datetime(f:'%a %d/%m %R') "; interval = 60; }
+        { block = "sound"; driver = "pulseaudio"; }
+        { block = "backlight"; }
+        { block = "battery"; }
+        { block = "time"; }
       ];
     };
   };
