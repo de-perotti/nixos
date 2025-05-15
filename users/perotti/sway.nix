@@ -16,7 +16,7 @@
       background-position: center;
     }
 
-    clock_frame {
+    #clock_frame {
       border: 1px solid red;
     }
 
