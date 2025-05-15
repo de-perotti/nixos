@@ -6,7 +6,10 @@
   services.xserver.displayManager.gdm.wayland = true;
   services.xserver.displayManager.gdm.autoSuspend = false;
   services.greetd.enable = true;
-  programs.regreet.enable = true;
-  programs.regreet.package = pkgs.greetd.wlgreet;
+  services.greetd.settings = {
+    default_session = {
+      command = "${pkgs.greetd.tuigreet}/bin/tuigreet --time --cmd sway";
+    };
+  };
   security.polkit.enable = true;
 }
