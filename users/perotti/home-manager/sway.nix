@@ -8,6 +8,10 @@
         {
           block = "sound";
           driver = "pulseaudio";
+          theme_overrides = {
+            idle_bg = "#FF0000";
+            idle_fg = "#00FF00";
+          };
         }
         {
           block = "backlight";
