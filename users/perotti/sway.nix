@@ -2,9 +2,22 @@
   programs.sway.enable = true;
   programs.xwayland.enable = true;
   services.xserver.displayManager.gdm.wayland = true;
-  services.greetd.enable = true;
-  services.greetd.settings = {
-    default_session.command = "${pkgs.cage}/bin/cage -s -- ${pkgs.greetd.wlgreet}/bin/wlgreet";
+  programs.regreet.enable = true;
+  programs.regreet.font.package = pkgs.jetbrains-mono;
+  programs.regreet.font.name = "JetBrains";
+  programs.regreet.font.size = 16;
+  programs.regreet.settings = {
+    appearance.greeting_msg = "FYMUG?";
+    widget.clock.timezone = "America/Sao_Paulo";
   };
+  programs.regreet.extraCss = ''
+    picture {
+      background-image: url("${./home-manager/config/wallpaper.jpg}");
+      background-size: cover;
+      background-position: center;
+      filter: blur(1.2rem);
+    }
+  '';
+  services.greetd.enable = true;
   security.polkit.enable = true;
 }
