@@ -2,7 +2,7 @@
   programs.i3status-rust.enable = true;
   programs.i3status-rust.bars = {
     "default" = {
-      theme = "space-villain";
+      theme = "nord-dark";
       icons = "awesome6";
       blocks = [
         { block = "sound"; driver = "pulseaudio"; }
