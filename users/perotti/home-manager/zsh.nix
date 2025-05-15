@@ -12,7 +12,7 @@
     initContent = let
       zshConfig = lib.mkOrder 1500 "${pkgs.fastfetch}/bin/fastfetch";
     in
-      lib.mkMerge [ zshConfigEarlyInit zshConfig ];
+      lib.mkMerge [ zshConfig ];
     plugins = [
       {
         name = "powerlevel10k";
