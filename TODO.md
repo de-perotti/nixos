@@ -10,7 +10,7 @@
       - [ ] battery format / icons
     - [ ] swaync
     - [ ] zsh
-    - [ ] cursor (gtk?)
+    - [x] cursor (gtk?)
     - [ ] swaylock
     - [ ] wofi https://cloudninja.pw/docs/wofi.html
   - [ ] secret manager
