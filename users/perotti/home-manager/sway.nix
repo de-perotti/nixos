@@ -3,7 +3,7 @@
   programs.i3status-rust.bars = {
     "default" = {
       blocks = [
-        { block = "sound"; }
+        { block = "sound"; driver = "pulseaudio"; }
         { block = "backlight"; }
         {
           block = "battery";
