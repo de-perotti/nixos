@@ -119,7 +119,7 @@
       all: unset;
     }
 
-    background {
+    picture#background {
       background-image: url("${./home-manager/config/wallpaper.jpg}");
       background-size: cover;
       background-position: center;
