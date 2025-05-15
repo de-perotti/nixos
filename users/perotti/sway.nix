@@ -14,9 +14,10 @@
           --greet-align left \
           --power-shutdown 'systemctl poweroff' \
           --power-reboot 'systemctl reboot' \
-          --prompt-padding 0 \
           --window-padding 0 \
-          --container-padding 0 \
+          --prompt-padding 1 \
+          --container-padding 1 \
+          --theme 'border=magenta;text=cyan;prompt=green;time=red;action=blue;button=yellow;container=black;input=#FF0000' \
           --cmd sway
       '';
     };
