@@ -1,4 +1,4 @@
-{ pkgs, ... }: {
+{ pkgs, lib, ... }: {
   programs.zsh = { 
     enable = true;
     autosuggestion.enable = true;
@@ -9,6 +9,10 @@
       size = 10000;
       save = 10000;
     };
+    initContent = let
+      zshConfig = lib.mkOrder 1500 "${pkgs.fastfetch}/bin/fastfetch";
+    in
+      lib.mkMerge [ zshConfigEarlyInit zshConfig ];
     plugins = [
       {
         name = "powerlevel10k";
