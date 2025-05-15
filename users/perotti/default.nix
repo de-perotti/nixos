@@ -22,7 +22,6 @@
   ];
   services.printing.enable = true;
 
-  environment.variables.XCURSOR_SIZE = "128";
   users.users.perotti = {
     name = "perotti";
     home = "/home/perotti";
