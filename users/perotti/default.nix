@@ -30,6 +30,6 @@
     shell = pkgs.zsh;
   };
   home-manager.users.perotti = ./home-manager/home.nix;
-  # services.displayManager.autoLogin.enable = true;
-  # services.displayManager.autoLogin.user = "perotti";
+  services.displayManager.autoLogin.enable = true;
+  services.displayManager.autoLogin.user = "perotti";
 }
