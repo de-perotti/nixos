@@ -30,6 +30,10 @@
     shell = pkgs.zsh;
   };
   home-manager.users.perotti = ./home-manager/home.nix;
-  services.displayManager.autoLogin.enable = true;
-  services.displayManager.autoLogin.user = "perotti";
+  services.greetd.settings = {
+    initial_session = {
+      command = "${pkgs.sway}/bin/sway";
+      user = "perotti";
+    };
+  };
 }

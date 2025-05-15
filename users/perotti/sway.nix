@@ -6,7 +6,7 @@
   services.xserver.displayManager.gdm.autoSuspend = false;
   services.greetd.enable = true;
   services.greetd.settings = {
-    default_session.command = "${pkgs.greetd.greetd}/bin/agreety --cmd sway";
+    default_session.command = "${pkgs.greetd.greetd}/bin/agreety --cmd ${pkgs.sway}/bin/sway";
   };
   security.polkit.enable = true;
 }
