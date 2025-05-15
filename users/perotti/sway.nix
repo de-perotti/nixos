@@ -8,7 +8,17 @@
   services.greetd.enable = true;
   services.greetd.settings = {
     default_session = {
-      command = "${pkgs.greetd.tuigreet}/bin/tuigreet --time --cmd sway";
+      command = ''
+        ${pkgs.greetd.tuigreet}/bin/tuigreet \
+          --time \
+          --greet-align left \
+          --power-shutdown 'systemctl poweroff' \
+          --power-reboot 'systemctl reboot' \
+          --prompt-padding 0 \
+          --window-padding 0 \
+          --container-padding 0 \
+          --cmd sway
+      '';
     };
   };
   security.polkit.enable = true;
