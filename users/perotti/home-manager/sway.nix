@@ -2,16 +2,12 @@
   programs.i3status-rust.enable = true;
   programs.i3status-rust.bars = {
     "default" = {
-      theme = "gruvbox-dark";
+      theme = "dracula";
       icons = "awesome6";
       blocks = [
         {
           block = "sound";
           driver = "pulseaudio";
-          theme_overrides = {
-            idle_bg = "#FF0000";
-            idle_fg = "#00FF00";
-          };
         }
         {
           block = "backlight";
