@@ -35,10 +35,4 @@
     shell = pkgs.zsh;
   };
   home-manager.users.perotti = ./home-manager/home.nix;
-  services.greetd.settings = {
-    initial_session = {
-      command = "${pkgs.sway}/bin/sway";
-      user = "perotti";
-    };
-  };
 }

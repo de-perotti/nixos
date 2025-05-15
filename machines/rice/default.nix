@@ -17,5 +17,14 @@
       # Home manager
       home-manager.nixosModules.home-manager
       ../../users/perotti
+      ({ pkgs, ... }: {
+        # Autologin
+        services.greetd.settings = {
+          initial_session = {
+            command = "${pkgs.sway}/bin/sway";
+            user = "perotti";
+          };
+        };
+      })
     ];
   }
