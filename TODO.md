@@ -1,6 +1,5 @@
-- [x] Use flakes instead
-  - reference: https://github.com/KubqoA/dotfiles/tree/main
-- [ ] lab
-  - [ ] secret manager
-  - [ ] lab configuration / home
-  - [ ] https://github.com/nix-community/impermanence
+- [ ] secret manager
+  - im fine with having to set passwords and keys on every fresh install
+- [ ] https://github.com/nix-community/impermanence
+  - im fine with not having to define format blocks on fresh install
+  - im fine with not having to find and declare all the little files I need to persist
