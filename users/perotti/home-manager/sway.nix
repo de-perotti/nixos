@@ -4,7 +4,7 @@
     "default" = {
       theme = "native";
       blocks = [
-        { block = "sound"; driver = "pulseaudio"; format = " \${volume|🔇} "; max_vol = "100"; }
+        { block = "sound"; driver = "pulseaudio"; format = " {$volume|🔇} "; max_vol = "100"; }
         { block = "backlight"; }
         { block = "net"; }
         { block = "battery"; }
