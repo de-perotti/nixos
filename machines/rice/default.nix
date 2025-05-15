@@ -3,7 +3,7 @@
     system = "x86_64-linux";
     modules = [
       # Hardware
-      ./hardware-configuration.nix
+      /etc/nixos/hardware-configuration.nix
       nixos-hardware.nixosModules.common-cpu-intel
       nixos-hardware.nixosModules.common-gpu-intel
       nixos-hardware.nixosModules.common-pc-laptop

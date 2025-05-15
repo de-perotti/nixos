@@ -6,7 +6,8 @@
       ".gnupg"
       ".ssh"
       ".nixops"
-      ".local/share/keyrings"
+      ".local/share"
+      ".config"
     ];
     allowOther = true;
   };

@@ -35,8 +35,8 @@
   ];
 
   imports = [
-    impermanence.homeManagerModules.impermanence
-    ./impermanence.nix
+    # impermanence.homeManagerModules.impermanence
+    # ./impermanence.nix
     ./zsh.nix
     ./foot.nix
     ./sway.nix
