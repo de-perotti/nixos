@@ -13,20 +13,50 @@
   boot.kernelModules = [ "kvm-intel" ];
   boot.extraModulePackages = [ ];
 
-  fileSystems."/" =
-    { device = "/dev/disk/by-uuid/57113a20-0801-486b-8103-0313001d61ce";
-      fsType = "ext4";
-    };
+  # Impermanence
+  fileSystems."/" = {
+    device = "none";
+    fsType = "tmpfs";
+    options = [ "defaults" "size=25%" "mode=755" ];
+  };
 
-  fileSystems."/boot" =
-    { device = "/dev/disk/by-uuid/E9FB-75AB";
-      fsType = "vfat";
-      options = [ "fmask=0077" "dmask=0077" ];
-    };
+  fileSystems."/persistent" = {
+    device = "/dev/root_vg/root";
+    neededForBoot = true;
+    fsType = "btrfs";
+    options = [ "subvol=persistent" ];
+  };
+
+  fileSystems."/nix" = {
+    device = "/dev/root_vg/root";
+    fsType = "btrfs";
+    options = [ "subvol=nix" ];
+  };
+
+  fileSystems."/boot" = {
+    device = "/dev/disk/by-uuid/E9FB-75AB";
+    fsType = "vfat";
+  };
 
   swapDevices =
     [ { device = "/dev/disk/by-uuid/a1a0bd75-b18d-4e1c-bb0a-4fba0dafdf10"; }
     ];
+
+  # Backup ##################################################################
+  # fileSystems."/" =
+  #   { device = "/dev/disk/by-uuid/57113a20-0801-486b-8103-0313001d61ce";
+  #     fsType = "ext4";
+  #   };
+
+  # fileSystems."/boot" =
+  #   { device = "/dev/disk/by-uuid/E9FB-75AB";
+  #     fsType = "vfat";
+  #     options = [ "fmask=0077" "dmask=0077" ];
+  #   };
+
+  # swapDevices =
+  #   [ { device = "/dev/disk/by-uuid/a1a0bd75-b18d-4e1c-bb0a-4fba0dafdf10"; }
+  #   ];
 
   # Enables DHCP on each ethernet and wireless interface. In case of scripted networking
   # (the default) this is the recommended approach. When using systemd-networkd it's
