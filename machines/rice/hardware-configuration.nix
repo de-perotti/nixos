@@ -13,50 +13,101 @@
   boot.kernelModules = [ "kvm-intel" ];
   boot.extraModulePackages = [ ];
 
+  #########################################################################
   # Impermanence
-  fileSystems."/" = {
-    device = "none";
-    fsType = "tmpfs";
-    options = [ "defaults" "size=25%" "mode=755" ];
-  };
+  # fileSystems."/" = {
+  #   device = "none";
+  #   fsType = "tmpfs";
+  #   options = [ "defaults" "size=25%" "mode=755" ];
+  # };
 
-  fileSystems."/persistent" = {
-    device = "/dev/root_vg/root";
-    neededForBoot = true;
-    fsType = "btrfs";
-    options = [ "subvol=persistent" ];
-  };
+  # fileSystems."/persistent" = {
+  #   device = "/dev/root_vg/root";
+  #   neededForBoot = true;
+  #   fsType = "btrfs";
+  #   options = [ "subvol=persistent" ];
+  # };
 
-  fileSystems."/nix" = {
-    device = "/dev/root_vg/root";
-    fsType = "btrfs";
-    options = [ "subvol=nix" ];
-  };
+  # fileSystems."/nix" = {
+  #   device = "/dev/root_vg/root";
+  #   fsType = "btrfs";
+  #   options = [ "subvol=nix" ];
+  # };
 
-  fileSystems."/boot" = {
-    device = "/dev/disk/by-uuid/E9FB-75AB";
-    fsType = "vfat";
-  };
+  # fileSystems."/boot" = {
+  #   device = "/dev/disk/by-uuid/E9FB-75AB";
+  #   fsType = "vfat";
+  # };
+
+
+  #########################################################################
+  # BTRFS
+  # fileSystems."/" = {
+  #   device = "/dev/root_vg/root";
+  #   fsType = "btrfs";
+  #   options = [ "subvol=root" ];
+  # };
+
+  # boot.initrd.postResumeCommands = lib.mkAfter ''
+  #   mkdir /btrfs_tmp
+  #   mount /dev/root_vg/root /btrfs_tmp
+  #   if [[ -e /btrfs_tmp/root ]]; then
+  #       mkdir -p /btrfs_tmp/old_roots
+  #       timestamp=$(date --date="@$(stat -c %Y /btrfs_tmp/root)" "+%Y-%m-%-d_%H:%M:%S")
+  #       mv /btrfs_tmp/root "/btrfs_tmp/old_roots/$timestamp"
+  #   fi
+
+  #   delete_subvolume_recursively() {
+  #       IFS=$'\n'
+  #       for i in $(btrfs subvolume list -o "$1" | cut -f 9- -d ' '); do
+  #           delete_subvolume_recursively "/btrfs_tmp/$i"
+  #       done
+  #       btrfs subvolume delete "$1"
+  #   }
+
+  #   for i in $(find /btrfs_tmp/old_roots/ -maxdepth 1 -mtime +30); do
+  #       delete_subvolume_recursively "$i"
+  #   done
+
+  #   btrfs subvolume create /btrfs_tmp/root
+  #   umount /btrfs_tmp
+  # '';
+
+  # fileSystems."/persistent" = {
+  #   device = "/dev/root_vg/root";
+  #   neededForBoot = true;
+  #   fsType = "btrfs";
+  #   options = [ "subvol=persistent" ];
+  # };
+
+  # fileSystems."/nix" = {
+  #   device = "/dev/root_vg/root";
+  #   fsType = "btrfs";
+  #   options = [ "subvol=nix" ];
+  # };
+
+  # fileSystems."/boot" = {
+  #   device = "/dev/disk/by-uuid/XXXX-XXXX";
+  #   fsType = "vfat";
+  # };
+
+
+  #########################################################################
+  # Backup
+  fileSystems."/" =
+    { device = "/dev/disk/by-uuid/57113a20-0801-486b-8103-0313001d61ce";
+      fsType = "ext4";
+    };
+
+  fileSystems."/boot" =
+    { device = "/dev/disk/by-uuid/E9FB-75AB";
+      fsType = "vfat";
+      options = [ "fmask=0077" "dmask=0077" ];
+    };
 
   swapDevices =
     [ { device = "/dev/disk/by-uuid/a1a0bd75-b18d-4e1c-bb0a-4fba0dafdf10"; }
     ];
-
-  # Backup ##################################################################
-  # fileSystems."/" =
-  #   { device = "/dev/disk/by-uuid/57113a20-0801-486b-8103-0313001d61ce";
-  #     fsType = "ext4";
-  #   };
-
-  # fileSystems."/boot" =
-  #   { device = "/dev/disk/by-uuid/E9FB-75AB";
-  #     fsType = "vfat";
-  #     options = [ "fmask=0077" "dmask=0077" ];
-  #   };
-
-  # swapDevices =
-  #   [ { device = "/dev/disk/by-uuid/a1a0bd75-b18d-4e1c-bb0a-4fba0dafdf10"; }
-  #   ];
 
   # Enables DHCP on each ethernet and wireless interface. In case of scripted networking
   # (the default) this is the recommended approach. When using systemd-networkd it's
