@@ -4,7 +4,7 @@
   services.xserver.displayManager.gdm.wayland = true;
   programs.regreet.enable = true;
   programs.regreet.font.package = pkgs.jetbrains-mono;
-  programs.regreet.font.name = "JetBrainsMono Nerd Font Mono 16";
+  programs.regreet.font.name = "JetBrains 16";
   programs.regreet.settings = {
     appearance.greeting_msg = "FYMUG?";
     widget.clock.timezone = "America/Sao_Paulo";
@@ -114,10 +114,6 @@
     @define-color yellow_container #584400;
     @define-color yellow_source #f5c211;
     @define-color yellow_value #f5c211;
-
-    * {
-      all: unset;
-    }
 
     picture {
       background-image: url("${./home-manager/config/wallpaper.jpg}");
