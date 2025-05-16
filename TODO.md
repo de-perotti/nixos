@@ -1,3 +1,7 @@
+- [ ] webstorm / golang configs & plugins?
+- [ ] power manager selector (bios performance config)
+- [ ] keyboard selector + notifier
+- [ ] create gaming user to bust out the wine / steam / vulkan combo
 - [ ] secret manager
   - im fine with having to set passwords and keys on every fresh install
 - [ ] https://github.com/nix-community/impermanence

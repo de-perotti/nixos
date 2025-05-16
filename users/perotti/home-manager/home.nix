@@ -33,6 +33,7 @@
     rofimoji
     vlc
     stremio
+    code-cursor
   ];
 
   imports = [

@@ -10,6 +10,7 @@
     "vscode"
     "stremio-shell"
     "stremio-server"
+    "cursor"
   ];
   home-manager.useGlobalPkgs = true;
   home-manager.useUserPackages = true;
