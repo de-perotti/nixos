@@ -8,6 +8,8 @@
     "rust-rover"
     "google-chrome"
     "vscode"
+    "stremio-shell"
+    "stremio-server"
   ];
   home-manager.useGlobalPkgs = true;
   home-manager.useUserPackages = true;

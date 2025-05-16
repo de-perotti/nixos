@@ -24,7 +24,6 @@
     neovim
     curl
     wget
-    nerdfonts
     vscode
     libnotify
     pwvucontrol
