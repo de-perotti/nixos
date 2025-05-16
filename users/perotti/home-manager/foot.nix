@@ -3,8 +3,9 @@
   programs.foot.server.enable = true;
   programs.foot.settings = {
     main = {
-      font = "JetBrains Mono:size=13:weight=extrabold:line-height=1.2";
+      font = "JetBrainsMono:size=13:weight=extrabold";
       letter-spacing=0;
+      line-height = 13;
       dpi-aware = false;
     };
     cursor = {
