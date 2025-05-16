@@ -3,11 +3,7 @@
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
   nix.settings.warn-dirty = false;
   nixpkgs.config.allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) [
-    "webstorm"
-    "rust-rover"
-    "pycharm-professional"
-    "idea-ultimate"
-    "goland"
+    "jetbrains-toolbox"
     "google-chrome"
     "vscode"
   ];

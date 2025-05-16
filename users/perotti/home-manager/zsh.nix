@@ -5,7 +5,7 @@
     syntaxHighlighting.enable = true;
     dotDir = ".config/zsh";
     history = {
-      path = ".config/zsh/.zsh_history";
+      path = "$HOME/.config/zsh/.zsh_history";
       size = 10000;
       save = 10000;
     };
