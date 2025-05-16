@@ -18,7 +18,9 @@
 
   home.packages = with pkgs; [
     google-chrome
-    jetbrains-toolbox
+    jetbrains.webstorm
+    jetbrains.goland
+    jetbrains.rust-rover
     neovim
     curl
     wget
