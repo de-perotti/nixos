@@ -1,3 +1,4 @@
+- [ ] export dev shell
 - [ ] webstorm / golang configs & plugins?
 - [ ] power manager selector (bios performance config)
 - [ ] keyboard selector + notifier
